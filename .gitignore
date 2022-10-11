@@ -47,7 +47,8 @@ _deps
 \.vs\
 .vs
 /out/
-/CMakeSettings.json
-*.vsidx
-*.ipch
-players/classic/.vs/win32_vs/v17/.suo
+
+# Debug builds
+\debug\
+\_debug\
+
