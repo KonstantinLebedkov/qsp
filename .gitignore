@@ -51,4 +51,6 @@ _deps
 # Debug builds
 \debug\
 \_debug\
+/_debug/
+*\_debug\
 
