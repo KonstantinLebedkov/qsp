@@ -40,5 +40,6 @@ _deps
 
 # Visual Studio files
 /.vs/
+*/.vs/
 /out/
 /CMakeSettings.json
