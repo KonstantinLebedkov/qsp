@@ -39,7 +39,7 @@
 #include "bindings/qsp.h"
 //#include <oniguruma.h> //was not found such file
 
-#include "qsp_config.h"
+//#include "qsp_config.h" //was not found such file
 
     #if defined(__GNUC__)
         #define INLINE static inline

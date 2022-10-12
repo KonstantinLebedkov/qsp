@@ -19,7 +19,7 @@
 #include "declarations.h"
 #include "variant.h"
 
-#include "qsp_config.h"
+//#include "qsp_config.h" //was not found such file
 
     #define QSP_GAMEID QSP_FMT("QSPGAME")
     #define QSP_SAVEDGAMEID QSP_FMT("QSPSAVEDGAME")
