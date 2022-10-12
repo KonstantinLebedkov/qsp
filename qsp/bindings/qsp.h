@@ -16,7 +16,7 @@
 */
 
 #pragma once
-    #include "qsp_export.h"
+    //#include "qsp_export.h"
 
     enum
     {
