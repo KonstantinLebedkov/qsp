@@ -37,7 +37,7 @@
 
 #include "bindings/bindings_config.h"
 #include "bindings/qsp.h"
-#include <oniguruma.h>
+//#include <oniguruma.h> //was not found such file
 
 #include "qsp_config.h"
 
