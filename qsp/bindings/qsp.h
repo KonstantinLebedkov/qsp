@@ -82,6 +82,7 @@
     };
 
 typedef struct
+//TODO: must be deleted after replacing all of its usages
 {
     QSP_CHAR *Str;
     QSP_CHAR *End;
