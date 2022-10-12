@@ -52,7 +52,11 @@ _deps
 \debug\
 \_debug\
 *\_debug\
-*\_debug\*
+*debug*
+*Debug*
 /_debug/
 */_debug/
 */_debug/*
+
+# WX plugin
+*wx*
