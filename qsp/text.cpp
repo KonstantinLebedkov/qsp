@@ -33,6 +33,7 @@ QSP_CHAR *qspStringToC(QSPString s)
 }
 
 void qspAddText(QSPString *dest, QSPString val, QSP_BOOL isCreate)
+// im sure it is not needed! its can de just appended to wstring
 {
     int valLen = qspStrLen(val);
     if (!isCreate && dest->Str)
