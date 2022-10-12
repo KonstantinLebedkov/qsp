@@ -14,13 +14,11 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
 #include "codetools.h"
 #include "variant.h"
-
-#ifndef QSP_STATSDEFINES
-    #define QSP_STATSDEFINES
 
     #define QSP_STATSLEVELS 3
     #define QSP_MAXSTATSNAMES 100
@@ -124,5 +122,3 @@
     QSP_BOOL qspExecCode(QSPLineOfCode *s, int startLine, int endLine, int codeOffset, QSPString *jumpTo);
     QSP_BOOL qspExecCodeBlockWithLocals(QSPLineOfCode *s, int startLine, int endLine, int codeOffset, QSPString *jumpTo);
     void qspExecStringAsCodeWithArgs(QSPString s, QSPVariant *args, QSP_TINYINT count, int codeOffset, QSPVariant *res);
-
-#endif

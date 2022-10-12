@@ -14,10 +14,7 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
-
-#ifndef QSP_DEFAULTDEFINES
-    #define QSP_DEFAULTDEFINES
-
+#pragma once
     static int qspEndiannessTestValue = 1;
 
     #ifdef _UNICODE
@@ -131,5 +128,3 @@
     #ifdef __cplusplus
     }
     #endif
-
-#endif

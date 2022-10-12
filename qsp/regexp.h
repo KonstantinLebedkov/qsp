@@ -14,11 +14,9 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
-
-#ifndef QSP_REGEXPDEFINES
-    #define QSP_REGEXPDEFINES
 
     #define QSP_MAXCACHEDREGEXPS 10
 
@@ -34,5 +32,3 @@
     QSP_BOOL qspRegExpStrMatch(QSPRegExp *exp, QSPString str);
     QSPString qspRegExpStrFind(QSPRegExp *exp, QSPString str, int ind);
     int qspRegExpStrPos(QSPRegExp *exp, QSPString str, int ind);
-
-#endif

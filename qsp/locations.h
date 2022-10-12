@@ -14,14 +14,12 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
 #include "actions.h"
 #include "codetools.h"
 #include "variant.h"
-
-#ifndef QSP_LOCSDEFINES
-    #define QSP_LOCSDEFINES
 
     typedef struct
     {
@@ -58,5 +56,3 @@
     void qspExecLocByNameWithArgs(QSPString name, QSPVariant *args, QSP_TINYINT count, QSPVariant *res);
     void qspExecLocByVarNameWithArgs(QSPString name, QSPVariant *args, QSP_TINYINT count);
     void qspRefreshCurLoc(QSP_BOOL isChangeDesc, QSPVariant *args, QSP_TINYINT count);
-
-#endif

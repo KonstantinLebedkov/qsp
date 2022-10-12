@@ -15,9 +15,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
-#ifndef QSP_H
-    #define QSP_H
-
+#pragma once
     #include "qsp_export.h"
 
     enum
@@ -99,5 +97,3 @@
 
     #define QSP_TRUE 1
     #define QSP_FALSE 0
-
-#endif

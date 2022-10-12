@@ -14,14 +14,12 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
 #include "variant.h"
 
 #include "qsp_config.h"
-
-#ifndef QSP_GAMEDEFINES
-    #define QSP_GAMEDEFINES
 
     #define QSP_GAMEID QSP_FMT("QSPGAME")
     #define QSP_SAVEDGAMEID QSP_FMT("QSPSAVEDGAME")
@@ -42,5 +40,3 @@
     QSP_BOOL qspStatementOpenQst(QSPVariant *args, QSP_TINYINT count, QSPString *jumpTo, QSP_TINYINT extArg);
     QSP_BOOL qspStatementOpenGame(QSPVariant *args, QSP_TINYINT count, QSPString *jumpTo, QSP_TINYINT extArg);
     QSP_BOOL qspStatementSaveGame(QSPVariant *args, QSP_TINYINT count, QSPString *jumpTo, QSP_TINYINT extArg);
-
-#endif

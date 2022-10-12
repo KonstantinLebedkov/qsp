@@ -14,13 +14,11 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
 #include "codetools.h"
 #include "variant.h"
-
-#ifndef QSP_ACTSDEFINES
-    #define QSP_ACTSDEFINES
 
     #define QSP_MAXACTIONS 50
 
@@ -49,5 +47,3 @@
     void qspStatementSinglelineAddAct(QSPLineOfCode *s, int statPos, int endPos);
     void qspStatementMultilineAddAct(QSPLineOfCode *s, int lineInd, int endLine);
     QSP_BOOL qspStatementDelAct(QSPVariant *args, QSP_TINYINT count, QSPString *jumpTo, QSP_TINYINT extArg);
-
-#endif

@@ -14,11 +14,9 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
-
-#ifndef QSP_ERRSDEFINES
-    #define QSP_ERRSDEFINES
 
     extern int qspErrorNum;
     extern int qspErrorLoc;
@@ -32,5 +30,3 @@
     void qspSetError(int);
     void qspResetError();
     QSPString qspGetErrorDesc(int errorNum);
-
-#endif

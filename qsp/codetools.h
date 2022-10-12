@@ -14,11 +14,9 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
-
-#ifndef QSP_CODETOOLSDEFINES
-    #define QSP_CODETOOLSDEFINES
 
     #define QSP_EOLEXT QSP_FMT("_")
     #define QSP_PREEOLEXT QSP_FMT(" ")
@@ -58,5 +56,3 @@
     QSPString qspJoinPrepLines(QSPLineOfCode *s, int count, QSPString delim);
     void qspPrepareStringToExecution(QSPString *str);
     int qspPreprocessData(QSPString data, QSPLineOfCode **strs);
-
-#endif

@@ -14,13 +14,11 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
 #include "codetools.h"
 #include "variant.h"
-
-#ifndef QSP_VARSDEFINES
-    #define QSP_VARSDEFINES
 
     #define QSP_VARGROUPSBATCHSIZE 256
     #define QSP_VARSSEEK 64
@@ -160,5 +158,3 @@
                 qspRestoreVarsList(qspSavedVarGroups[ind].Vars, qspSavedVarGroups[ind].VarsCount);
         }
     }
-
-#endif

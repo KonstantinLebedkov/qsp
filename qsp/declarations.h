@@ -14,6 +14,7 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -27,12 +28,10 @@
 
 /* MEMWATCH */
 
-#ifdef _DEBUG
     #define MEMWATCH
     #define MEMWATCH_STDIO
 
     #include "memwatch.h"
-#endif
 
 /* -------- */
 
@@ -41,9 +40,6 @@
 #include <oniguruma.h>
 
 #include "qsp_config.h"
-
-#ifndef QSP_DEFINES
-    #define QSP_DEFINES
 
     #if defined(__GNUC__)
         #define INLINE static inline
@@ -91,5 +87,3 @@
     #define QSP_MUL QSP_FMT("*")
     #define QSP_USERFUNC QSP_FMT("@")
     #define QSP_DELIMS QSP_FMT(" \t&'\"()[]=!<>+-/*:,{}")
-
-#endif

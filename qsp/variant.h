@@ -14,12 +14,10 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
 #include "text.h"
-
-#ifndef QSP_VARIANTDEFINES
-    #define QSP_VARIANTDEFINES
 
     #define QSP_STR(a) (a).Val.Str
     #define QSP_NUM(a) (a).Val.Num
@@ -96,5 +94,3 @@
         }
         return QSP_TRUE;
     }
-
-#endif

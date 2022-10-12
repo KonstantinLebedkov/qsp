@@ -15,9 +15,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
-#ifndef QSP_BINDINGSCONFIG
-    #define QSP_BINDINGSCONFIG
-
+#pragma once
     /* Android binding */
     /*
     #ifdef _ANDROID
@@ -33,5 +31,3 @@
         #define _DEFAULT_BINDING
         #include "default/qsp_default.h"
     #endif
-
-#endif

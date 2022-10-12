@@ -14,11 +14,9 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
-
-#ifndef QSP_CALLSDEFINES
-    #define QSP_CALLSDEFINES
 
     typedef struct
     {
@@ -63,5 +61,3 @@
     QSPString qspCallInputBox(QSPString text);
     int qspCallShowMenu(QSPListItem *items, int count);
     QSPString qspCallVersion(QSPString param);
-
-#endif

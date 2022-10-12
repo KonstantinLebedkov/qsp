@@ -14,12 +14,10 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
+#pragma once
 
 #include "declarations.h"
 #include "variant.h"
-
-#ifndef QSP_PLAYLISTDEFINES
-    #define QSP_PLAYLISTDEFINES
 
     #define QSP_PLVOLUMEDELIM QSP_FMT("*")
     #define QSP_MAXPLFILES 500
@@ -34,5 +32,3 @@
     /* Statements */
     QSP_BOOL qspStatementPlayFile(QSPVariant *args, QSP_TINYINT count, QSPString *jumpTo, QSP_TINYINT extArg);
     QSP_BOOL qspStatementCloseFile(QSPVariant *args, QSP_TINYINT count, QSPString *jumpTo, QSP_TINYINT extArg);
-
-#endif
