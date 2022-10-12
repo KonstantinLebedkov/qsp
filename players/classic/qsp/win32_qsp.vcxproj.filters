@@ -27,73 +27,73 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\qsp\actions.c">
+    <ClCompile Include="..\..\..\qsp\actions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\callbacks.c">
+    <ClCompile Include="..\..\..\qsp\callbacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\codetools.c">
+    <ClCompile Include="..\..\..\qsp\codetools.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\coding.c">
+    <ClCompile Include="..\..\..\qsp\coding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\common.c">
+    <ClCompile Include="..\..\..\qsp\common.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\errors.c">
+    <ClCompile Include="..\..\..\qsp\errors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\game.c">
+    <ClCompile Include="..\..\..\qsp\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\locations.c">
+    <ClCompile Include="..\..\..\qsp\locations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\mathops.c">
+    <ClCompile Include="..\..\..\qsp\mathops.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\memwatch.c">
+    <ClCompile Include="..\..\..\qsp\memwatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\menu.c">
+    <ClCompile Include="..\..\..\qsp\menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\objects.c">
+    <ClCompile Include="..\..\..\qsp\objects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\playlist.c">
+    <ClCompile Include="..\..\..\qsp\playlist.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\regexp.c">
+    <ClCompile Include="..\..\..\qsp\regexp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\statements.c">
+    <ClCompile Include="..\..\..\qsp\statements.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\text.c">
+    <ClCompile Include="..\..\..\qsp\text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\time.c">
+    <ClCompile Include="..\..\..\qsp\time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\towlower.c">
+    <ClCompile Include="..\..\..\qsp\towlower.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\towupper.c">
+    <ClCompile Include="..\..\..\qsp\towupper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\variables.c">
+    <ClCompile Include="..\..\..\qsp\variables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\variant.c">
+    <ClCompile Include="..\..\..\qsp\variant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\bindings\default\default_callbacks.c">
+    <ClCompile Include="..\..\..\qsp\bindings\default\default_callbacks.cpp">
       <Filter>Source Files\bindings\default</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\qsp\bindings\default\default_control.c">
+    <ClCompile Include="..\..\..\qsp\bindings\default\default_control.cpp">
       <Filter>Source Files\bindings\default</Filter>
     </ClCompile>
   </ItemGroup>

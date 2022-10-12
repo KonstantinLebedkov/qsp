@@ -100,29 +100,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\qsp\actions.c" />
-    <ClCompile Include="..\..\..\qsp\callbacks.c" />
-    <ClCompile Include="..\..\..\qsp\codetools.c" />
-    <ClCompile Include="..\..\..\qsp\coding.c" />
-    <ClCompile Include="..\..\..\qsp\common.c" />
-    <ClCompile Include="..\..\..\qsp\errors.c" />
-    <ClCompile Include="..\..\..\qsp\game.c" />
-    <ClCompile Include="..\..\..\qsp\locations.c" />
-    <ClCompile Include="..\..\..\qsp\mathops.c" />
-    <ClCompile Include="..\..\..\qsp\memwatch.c" />
-    <ClCompile Include="..\..\..\qsp\menu.c" />
-    <ClCompile Include="..\..\..\qsp\objects.c" />
-    <ClCompile Include="..\..\..\qsp\playlist.c" />
-    <ClCompile Include="..\..\..\qsp\regexp.c" />
-    <ClCompile Include="..\..\..\qsp\statements.c" />
-    <ClCompile Include="..\..\..\qsp\text.c" />
-    <ClCompile Include="..\..\..\qsp\time.c" />
-    <ClCompile Include="..\..\..\qsp\towlower.c" />
-    <ClCompile Include="..\..\..\qsp\towupper.c" />
-    <ClCompile Include="..\..\..\qsp\variables.c" />
-    <ClCompile Include="..\..\..\qsp\variant.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\default\default_callbacks.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\default\default_control.c" />
+    <ClCompile Include="..\..\..\qsp\actions.cpp" />
+    <ClCompile Include="..\..\..\qsp\callbacks.cpp" />
+    <ClCompile Include="..\..\..\qsp\codetools.cpp" />
+    <ClCompile Include="..\..\..\qsp\coding.cpp" />
+    <ClCompile Include="..\..\..\qsp\common.cpp" />
+    <ClCompile Include="..\..\..\qsp\errors.cpp" />
+    <ClCompile Include="..\..\..\qsp\game.cpp" />
+    <ClCompile Include="..\..\..\qsp\locations.cpp" />
+    <ClCompile Include="..\..\..\qsp\mathops.cpp" />
+    <ClCompile Include="..\..\..\qsp\memwatch.cpp" />
+    <ClCompile Include="..\..\..\qsp\menu.cpp" />
+    <ClCompile Include="..\..\..\qsp\objects.cpp" />
+    <ClCompile Include="..\..\..\qsp\playlist.cpp" />
+    <ClCompile Include="..\..\..\qsp\regexp.cpp" />
+    <ClCompile Include="..\..\..\qsp\statements.cpp" />
+    <ClCompile Include="..\..\..\qsp\text.cpp" />
+    <ClCompile Include="..\..\..\qsp\time.cpp" />
+    <ClCompile Include="..\..\..\qsp\towlower.cpp" />
+    <ClCompile Include="..\..\..\qsp\towupper.cpp" />
+    <ClCompile Include="..\..\..\qsp\variables.cpp" />
+    <ClCompile Include="..\..\..\qsp\variant.cpp" />
+    <ClCompile Include="..\..\..\qsp\bindings\default\default_callbacks.cpp" />
+    <ClCompile Include="..\..\..\qsp\bindings\default\default_control.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\qsp\actions.h" />
