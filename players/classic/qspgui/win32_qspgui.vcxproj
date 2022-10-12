@@ -15,17 +15,18 @@
     <ProjectGuid>{40B3607A-EA2B-483F-8B4C-C9145A2F1903}</ProjectGuid>
     <RootNamespace>qspgui</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Unicode|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v110_xp</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Unicode|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v110_xp</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -63,6 +64,8 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
       <AdditionalIncludeDirectories>..\..\..\qsp\bindings;..\..\..\qsp\bindings\default;..\build_wx\wxWidgets\include;..\build_wx\wxWidgets\lib\vc_lib\mswud</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <AdditionalDependencies>rpcrt4.lib;wxbase31ud.lib;wxmsw31ud_core.lib;wxmsw31ud_html.lib;wxmsw31ud_adv.lib;wxmsw31ud_aui.lib;wxzlibd.lib;wxtiffd.lib;wxjpegd.lib;wxpngd.lib;comctl32.lib;fmodex_vc.lib;qsp.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -89,6 +92,8 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
       <AdditionalIncludeDirectories>..\..\..\qsp\bindings;..\..\..\qsp\bindings\default;..\build_wx\wxWidgets\include;..\build_wx\wxWidgets\lib\vc_lib\mswu</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <AdditionalDependencies>rpcrt4.lib;wxmsw31u_core.lib;wxbase31u.lib;wxmsw31u_html.lib;wxmsw31u_adv.lib;wxmsw31u_aui.lib;wxtiff.lib;wxjpeg.lib;wxpng.lib;wxzlib.lib;comctl32.lib;fmodex_vc.lib;qsp.lib;%(AdditionalDependencies)</AdditionalDependencies>
