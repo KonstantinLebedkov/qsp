@@ -121,34 +121,8 @@
     <ClCompile Include="..\..\..\qsp\towupper.c" />
     <ClCompile Include="..\..\..\qsp\variables.c" />
     <ClCompile Include="..\..\..\qsp\variant.c" />
-    <ClCompile Include="..\..\..\qsp\onig\regcomp.c" />
-    <ClCompile Include="..\..\..\qsp\onig\regenc.c" />
-    <ClCompile Include="..\..\..\qsp\onig\regerror.c" />
-    <ClCompile Include="..\..\..\qsp\onig\regexec.c" />
-    <ClCompile Include="..\..\..\qsp\onig\regparse.c" />
-    <ClCompile Include="..\..\..\qsp\onig\regsyntax.c" />
-    <ClCompile Include="..\..\..\qsp\onig\regtrav.c" />
-    <ClCompile Include="..\..\..\qsp\onig\regversion.c" />
-    <ClCompile Include="..\..\..\qsp\onig\st.c" />
-    <ClCompile Include="..\..\..\qsp\onig\enc\ascii.c" />
-    <ClCompile Include="..\..\..\qsp\onig\enc\cp1251.c" />
-    <ClCompile Include="..\..\..\qsp\onig\enc\koi8_r.c" />
-    <ClCompile Include="..\..\..\qsp\onig\enc\unicode.c" />
-    <ClCompile Include="..\..\..\qsp\onig\enc\utf16_be.c" />
-    <ClCompile Include="..\..\..\qsp\onig\enc\utf16_le.c" />
-    <ClCompile Include="..\..\..\qsp\onig\enc\utf32_be.c" />
-    <ClCompile Include="..\..\..\qsp\onig\enc\utf32_le.c" />
     <ClCompile Include="..\..\..\qsp\bindings\default\default_callbacks.c" />
     <ClCompile Include="..\..\..\qsp\bindings\default\default_control.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\flash\flash_callbacks.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\flash\flash_platform.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\flash\flash_control.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\java\java_callbacks.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\java\java_platform.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\java\java_control.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\android\android_callbacks.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\android\android_platform.c" />
-    <ClCompile Include="..\..\..\qsp\bindings\android\android_control.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\qsp\actions.h" />
@@ -172,17 +146,8 @@
     <ClInclude Include="..\..\..\qsp\time.h" />
     <ClInclude Include="..\..\..\qsp\variables.h" />
     <ClInclude Include="..\..\..\qsp\variant.h" />
-    <ClInclude Include="..\..\..\qsp\onig\config.h" />
-    <ClInclude Include="..\..\..\qsp\onig\oniguruma.h" />
-    <ClInclude Include="..\..\..\qsp\onig\regenc.h" />
-    <ClInclude Include="..\..\..\qsp\onig\regint.h" />
-    <ClInclude Include="..\..\..\qsp\onig\regparse.h" />
-    <ClInclude Include="..\..\..\qsp\onig\st.h" />
     <ClInclude Include="..\..\..\qsp\bindings\bindings_config.h" />
     <ClInclude Include="..\..\..\qsp\bindings\default\qsp_default.h" />
-    <ClInclude Include="..\..\..\qsp\bindings\flash\flash.h" />
-    <ClInclude Include="..\..\..\qsp\bindings\java\java.h" />
-    <ClInclude Include="..\..\..\qsp\bindings\android\android.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
