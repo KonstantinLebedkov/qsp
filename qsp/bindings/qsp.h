@@ -16,6 +16,7 @@
 */
 
 #pragma once
+#include <string>
     //#include "qsp_export.h"
 
     enum
@@ -80,11 +81,13 @@
         QSP_CALL_DUMMY
     };
 
-    typedef struct
-    {
-        QSP_CHAR *Str;
-        QSP_CHAR *End;
-    } QSPString;
+typedef struct
+{
+    QSP_CHAR *Str;
+    QSP_CHAR *End;
+} QSPString;
+
+typedef std::wstring QSPwString;
 
     typedef struct
     {
