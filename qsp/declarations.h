@@ -1,4 +1,5 @@
 /* Copyright (C) 2001-2020 Valeriy Argunov (byte AT qsp DOT org) */
+/* Copyright (C) 2022 Konstantin Lebedkov*/
 /*
 * This library is free software; you can redistribute it and/or modify
 * it under the terms of the GNU Lesser General Public License as published by
@@ -38,9 +39,9 @@
 
 #include "bindings/bindings_config.h"
 #include "bindings/qsp.h"
-#include <oniguruma.h>
+//#include <oniguruma.h>
 
-#include "qsp_config.h"
+//#include "qsp_config.h"
 
 #ifndef QSP_DEFINES
     #define QSP_DEFINES
@@ -52,11 +53,8 @@
     #endif
 
     #define QSP_STATIC_LEN(x) (sizeof(x) / sizeof(QSP_CHAR) - 1)
-    #if defined(__GNUC__)
-        #define QSP_STATIC_STR(x) ((QSPString) { (x), (x) + QSP_STATIC_LEN(x) })
-    #else
-        #define QSP_STATIC_STR(x) (qspStringFromLen(x, QSP_STATIC_LEN(x)))
-    #endif
+
+    #define QSP_STATIC_STR(x) (qspStringFromLen(x, QSP_STATIC_LEN(x)))
 
     #define QSP_VER QSP_FMT(QSP_VER_STR)
     #define QSP_LOCALE "russian"

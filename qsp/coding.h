@@ -1,4 +1,5 @@
 /* Copyright (C) 2001-2020 Valeriy Argunov (byte AT qsp DOT org) */
+/* Copyright (C) 2022 Konstantin Lebedkov*/
 /*
 * This library is free software; you can redistribute it and/or modify
 * it under the terms of the GNU Lesser General Public License as published by
@@ -14,27 +15,22 @@
 * along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
-
+#pragma once
 #include "declarations.h"
 
-#ifndef QSP_CODINGDEFINES
-    #define QSP_CODINGDEFINES
+#define QSP_CODREMOV 5
 
-    #define QSP_CODREMOV 5
-
-    extern unsigned char qspCP1251ToUpperTable[];
-    extern unsigned char qspCP1251ToLowerTable[];
-    extern unsigned char qspKOI8RToUpperTable[];
-    extern unsigned char qspKOI8RToLowerTable[];
-    extern unsigned char qspCP1251OrderTable[];
-    extern unsigned char qspKOI8ROrderTable[];
+extern unsigned char qspCP1251ToUpperTable[];
+extern unsigned char qspCP1251ToLowerTable[];
+extern unsigned char qspKOI8RToUpperTable[];
+extern unsigned char qspKOI8RToLowerTable[];
+extern unsigned char qspCP1251OrderTable[];
+extern unsigned char qspKOI8ROrderTable[];
 
     /* External functions */
-    void *qspStringToFileData(QSPString s, QSP_BOOL isUCS2, int *dataSize);
-    QSPString qspStringFromFileData(void *data, int dataSize, QSP_BOOL isUCS2);
-    QSPString qspCodeDeCode(QSPString str, QSP_BOOL isCode);
-    int qspDeCodeGetIntVal(QSPString val);
-    void qspCodeWriteIntVal(QSPString *s, int val, QSP_BOOL isCode);
-    void qspCodeWriteVal(QSPString *s, QSPString val, QSP_BOOL isCode);
-
-#endif
+void *qspStringToFileData(QSPString s, QSP_BOOL isUCS2, int *dataSize);
+QSPString qspStringFromFileData(void *data, int dataSize, QSP_BOOL isUCS2);
+QSPString qspCodeDeCode(QSPString str, QSP_BOOL isCode);
+int qspDeCodeGetIntVal(QSPString val);
+void qspCodeWriteIntVal(QSPString *s, int val, QSP_BOOL isCode);
+void qspCodeWriteVal(QSPString *s, QSPString val, QSP_BOOL isCode);

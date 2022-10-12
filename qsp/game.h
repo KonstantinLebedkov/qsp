@@ -18,7 +18,7 @@
 #include "declarations.h"
 #include "variant.h"
 
-#include "qsp_config.h"
+//#include "qsp_config.h"
 
 #ifndef QSP_GAMEDEFINES
     #define QSP_GAMEDEFINES

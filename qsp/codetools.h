@@ -1,4 +1,5 @@
 /* Copyright (C) 2001-2020 Valeriy Argunov (byte AT qsp DOT org) */
+/* Copyright (C) 2022 Konstantin Lebedkov*/
 /*
 * This library is free software; you can redistribute it and/or modify
 * it under the terms of the GNU Lesser General Public License as published by
@@ -15,48 +16,20 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
+#pragma once
 #include "declarations.h"
+#include "LineOfCode.h"
 
-#ifndef QSP_CODETOOLSDEFINES
-    #define QSP_CODETOOLSDEFINES
+#define QSP_EOLEXT QSP_FMT("_")
+#define QSP_PREEOLEXT QSP_FMT(" ")
 
-    #define QSP_EOLEXT QSP_FMT("_")
-    #define QSP_PREEOLEXT QSP_FMT(" ")
-
-    typedef struct
-    {
-        int StartPos;
-        int EndPos;
-    } QSPCachedArg;
-
-    typedef struct
-    {
-        QSP_TINYINT Stat;
-        int ParamPos;
-        int EndPos;
-        QSPCachedArg *Args;
-        QSP_TINYINT ArgsCount;
-        int ErrorCode;
-    } QSPCachedStat;
-
-    typedef struct
-    {
-        QSPString Str;
-        int LineNum;
-        QSP_BOOL IsMultiline;
-        QSPString Label;
-        QSPCachedStat *Stats;
-        int StatsCount;
-    } QSPLineOfCode;
 
     /* External functions */
-    QSPString qspGetLineLabel(QSPString str);
-    void qspInitLineOfCode(QSPLineOfCode *line, QSPString str, int lineNum);
-    void qspFreeLineOfCode(QSPLineOfCode *line);
-    void qspFreePrepLines(QSPLineOfCode *, int);
-    void qspCopyPrepLines(QSPLineOfCode **, QSPLineOfCode *, int, int);
-    QSPString qspJoinPrepLines(QSPLineOfCode *s, int count, QSPString delim);
-    void qspPrepareStringToExecution(QSPString *str);
-    int qspPreprocessData(QSPString data, QSPLineOfCode **strs);
-
-#endif
+QSPString qspGetLineLabel(QSPString str);
+void qspInitLineOfCode(QSPLineOfCode *line, QSPString str, int lineNum);
+void qspFreeLineOfCode(QSPLineOfCode *line);
+void qspFreePrepLines(QSPLineOfCode *, int);
+void qspCopyPrepLines(QSPLineOfCode **, QSPLineOfCode *, int, int);
+QSPString qspJoinPrepLines(QSPLineOfCode *s, int count, QSPString delim);
+void qspPrepareStringToExecution(QSPString *str);
+int qspPreprocessData(QSPString data, QSPLineOfCode **strs);

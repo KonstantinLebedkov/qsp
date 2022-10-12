@@ -15,9 +15,9 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
-#include "declarations.h"
 #include "codetools.h"
 #include "variant.h"
+#include "StatName.h"
 
 #ifndef QSP_STATSDEFINES
     #define QSP_STATSDEFINES
@@ -30,12 +30,6 @@
     #define QSP_STATLOOPSTEP QSP_FMT("STEP")
 
     typedef QSP_BOOL (*QSP_STATEMENT)(QSPVariant *, QSP_TINYINT, QSPString *, QSP_TINYINT);
-
-    typedef struct
-    {
-        QSP_TINYINT Code;
-        QSPString Name;
-    } QSPStatName;
 
     typedef struct
     {

@@ -15,16 +15,17 @@
     <ProjectGuid>{9DB406E1-D8B8-41AA-91D2-A3C5E3FD7CAC}</ProjectGuid>
     <RootNamespace>qsp</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Unicode|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v110_xp</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Unicode|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v110_xp</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -41,26 +42,24 @@
     <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Unicode|Win32'">
-    <OutDir>../_debug\</OutDir>
-    <IntDir>../_debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Unicode|Win32'">
-    <OutDir>../_release\</OutDir>
-    <IntDir>../_release\</IntDir>
     <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Unicode|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_WIN;_UNICODE;_DEBUG;NOT_RUBY;EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>true</MinimalRebuild>
+      <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
@@ -79,12 +78,12 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_WIN;_UNICODE;NOT_RUBY;EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
@@ -100,27 +99,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\qsp\actions.c" />
-    <ClCompile Include="..\..\..\qsp\callbacks.c" />
-    <ClCompile Include="..\..\..\qsp\codetools.c" />
-    <ClCompile Include="..\..\..\qsp\coding.c" />
-    <ClCompile Include="..\..\..\qsp\common.c" />
-    <ClCompile Include="..\..\..\qsp\errors.c" />
-    <ClCompile Include="..\..\..\qsp\game.c" />
-    <ClCompile Include="..\..\..\qsp\locations.c" />
-    <ClCompile Include="..\..\..\qsp\mathops.c" />
-    <ClCompile Include="..\..\..\qsp\memwatch.c" />
-    <ClCompile Include="..\..\..\qsp\menu.c" />
-    <ClCompile Include="..\..\..\qsp\objects.c" />
-    <ClCompile Include="..\..\..\qsp\playlist.c" />
-    <ClCompile Include="..\..\..\qsp\regexp.c" />
-    <ClCompile Include="..\..\..\qsp\statements.c" />
-    <ClCompile Include="..\..\..\qsp\text.c" />
-    <ClCompile Include="..\..\..\qsp\time.c" />
-    <ClCompile Include="..\..\..\qsp\towlower.c" />
-    <ClCompile Include="..\..\..\qsp\towupper.c" />
-    <ClCompile Include="..\..\..\qsp\variables.c" />
-    <ClCompile Include="..\..\..\qsp\variant.c" />
+    <ClCompile Include="..\..\..\qsp\Action.cpp" />
+    <ClCompile Include="..\..\..\qsp\actions.cpp" />
+    <ClCompile Include="..\..\..\qsp\CachedArg.cpp" />
+    <ClCompile Include="..\..\..\qsp\callbacks.cpp" />
+    <ClCompile Include="..\..\..\qsp\CachedStat.cpp" />
+    <ClCompile Include="..\..\..\qsp\codetools.cpp" />
+    <ClCompile Include="..\..\..\qsp\coding.cpp" />
+    <ClCompile Include="..\..\..\qsp\common.cpp" />
+    <ClCompile Include="..\..\..\qsp\errors.cpp" />
+    <ClCompile Include="..\..\..\qsp\game.cpp" />
+    <ClCompile Include="..\..\..\qsp\LineOfCode.cpp" />
+    <ClCompile Include="..\..\..\qsp\locations.cpp" />
+    <ClCompile Include="..\..\..\qsp\mathops.cpp" />
+    <ClCompile Include="..\..\..\qsp\memwatch.cpp" />
+    <ClCompile Include="..\..\..\qsp\menu.cpp" />
+    <ClCompile Include="..\..\..\qsp\objects.cpp" />
+    <ClCompile Include="..\..\..\qsp\playlist.cpp" />
+    <ClCompile Include="..\..\..\qsp\regexp.cpp" />
+    <ClCompile Include="..\..\..\qsp\statements.cpp" />
+    <ClCompile Include="..\..\..\qsp\text.cpp" />
+    <ClCompile Include="..\..\..\qsp\time.cpp" />
+    <ClCompile Include="..\..\..\qsp\towlower.cpp" />
+    <ClCompile Include="..\..\..\qsp\towupper.cpp" />
+    <ClCompile Include="..\..\..\qsp\variables.cpp" />
+    <ClCompile Include="..\..\..\qsp\variant.cpp" />
     <ClCompile Include="..\..\..\qsp\onig\regcomp.c" />
     <ClCompile Include="..\..\..\qsp\onig\regenc.c" />
     <ClCompile Include="..\..\..\qsp\onig\regerror.c" />
@@ -151,15 +154,19 @@
     <ClCompile Include="..\..\..\qsp\bindings\android\android_control.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\qsp\Action.h" />
     <ClInclude Include="..\..\..\qsp\actions.h" />
     <ClInclude Include="..\..\..\qsp\bindings\qsp.h" />
+    <ClInclude Include="..\..\..\qsp\CachedArg.h" />
     <ClInclude Include="..\..\..\qsp\callbacks.h" />
+    <ClInclude Include="..\..\..\qsp\CachedStat.h" />
     <ClInclude Include="..\..\..\qsp\codetools.h" />
     <ClInclude Include="..\..\..\qsp\coding.h" />
     <ClInclude Include="..\..\..\qsp\common.h" />
     <ClInclude Include="..\..\..\qsp\declarations.h" />
     <ClInclude Include="..\..\..\qsp\errors.h" />
     <ClInclude Include="..\..\..\qsp\game.h" />
+    <ClInclude Include="..\..\..\qsp\LineOfCode.h" />
     <ClInclude Include="..\..\..\qsp\locations.h" />
     <ClInclude Include="..\..\..\qsp\mathops.h" />
     <ClInclude Include="..\..\..\qsp\memwatch.h" />
@@ -168,6 +175,7 @@
     <ClInclude Include="..\..\..\qsp\playlist.h" />
     <ClInclude Include="..\..\..\qsp\regexp.h" />
     <ClInclude Include="..\..\..\qsp\statements.h" />
+    <ClInclude Include="..\..\..\qsp\StatName.h" />
     <ClInclude Include="..\..\..\qsp\text.h" />
     <ClInclude Include="..\..\..\qsp\time.h" />
     <ClInclude Include="..\..\..\qsp\variables.h" />
