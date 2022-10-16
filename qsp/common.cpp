@@ -28,7 +28,7 @@
 static unsigned int qspRandX[55], qspRandY[256], qspRandZ;
 static int qspRandI, qspRandJ;
 QSP_BOOL qspIsDebug = QSP_FALSE;
-QSPString qspCurDesc;
+qsp_string qspCurDesc;
 QSPString qspCurVars;
 QSPString qspCurInput;
 QSPString qspViewPath;
@@ -64,10 +64,10 @@ void qspMemClear(QSP_BOOL isFirst)
     qspClearRegExps(isFirst);
     if (!isFirst)
     {
-        if (!qspIsEmpty(qspCurDesc)) qspIsMainDescChanged = QSP_TRUE;
+        if (!qspCurDesc.empty()) qspIsMainDescChanged = QSP_TRUE;//was: if (!qspIsEmpty(qspCurDesc)) qspIsMainDescChanged = QSP_TRUE;
         if (!qspIsEmpty(qspCurVars)) qspIsVarsDescChanged = QSP_TRUE;
 
-        qspFreeString(qspCurDesc);
+        qspCurDesc.~qsp_string();//was: qspFreeString(qspCurDesc);
         qspFreeString(qspCurVars);
         qspFreeString(qspCurInput);
         qspFreeString(qspViewPath);

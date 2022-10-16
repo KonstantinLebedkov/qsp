@@ -17,6 +17,7 @@
 
 #include "coding.h"
 #include "text.h"
+#include "qsp_string.h"
 
 unsigned char qspCP1251ToKOI8RTable[] =
 {

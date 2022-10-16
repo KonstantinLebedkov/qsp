@@ -17,12 +17,13 @@
 #pragma once
 
 #include "declarations.h"
+#include "qsp_string.h"
 
     #define QSP_RANDMASK 0x7FFFFFFF
 
     extern QSP_BOOL qspIsDebug;
     //extern QSPString qspCurDesc;
-    qsp_string qspCurDesc;
+    extern qsp_string qspCurDesc;
     extern QSPString qspCurVars;
     extern QSPString qspCurInput;
     extern QSPString qspViewPath;

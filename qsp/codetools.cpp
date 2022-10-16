@@ -18,6 +18,7 @@
 #include "codetools.h"
 #include "statements.h"
 #include "text.h"
+#include "qsp_string.h"
 
 INLINE int qspStatStringCompare(const void *, const void *);
 INLINE QSP_TINYINT qspGetStatCode(QSPString s, QSP_CHAR **pos);
@@ -635,7 +636,7 @@ INLINE int qspProcessEOLExtensions(QSPLineOfCode *s, int count, QSPLineOfCode **
     while (i < count)
     {
         strBuf.append(s[i].Str);//was: qspAddText(&strBuf, s[i].Str, QSP_TRUE);
-        len = qspStrLen(strBuf);
+        len = strBuf.length();//was: len = qspStrLen(strBuf);
         if (len >= QSP_STATIC_LEN(QSP_PREEOLEXT QSP_EOLEXT))
         {
             eol = strBuf;
