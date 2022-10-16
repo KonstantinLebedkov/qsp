@@ -14,7 +14,7 @@ public:
     ~qsp_actions();
     void ClearActions();//bool flag isnt requred: if first, vector will be empty. if is not empty, it cant be first.
 private:
-    std::vector<qsp_action*>::iterator ActIndex(qsp_string name);
+    std::vector<qsp_action*>::iterator ActIndex(qsp_string name);//get iterator to vector's member named as requested. if unfound, returns end of vector.
 public:
     void AddAction(std::vector<qsp_variant*> args, QSPLineOfCode* code, int start, int end);
     void Execute();

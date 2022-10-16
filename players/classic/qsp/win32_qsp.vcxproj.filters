@@ -96,9 +96,6 @@
     <ClCompile Include="..\..\..\qsp\bindings\default\default_control.cpp">
       <Filter>Source Files\bindings\default</Filter>
     </ClCompile>
-    <ClCompile Include="qsp_string.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\qsp\qsp_action.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -106,6 +103,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\qsp\qsp_variant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\qsp\qsp_string.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -179,9 +179,6 @@
     <ClInclude Include="..\..\..\qsp\bindings\qsp.h">
       <Filter>Header Files\bindings</Filter>
     </ClInclude>
-    <ClInclude Include="qsp_string.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\qsp\qsp_action.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -189,6 +186,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\qsp\qsp_variant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\qsp\qsp_string.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

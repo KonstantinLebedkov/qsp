@@ -11,6 +11,7 @@ public:
     int Location;
     int ActIndex;
     qsp_action() { Image = new qsp_string(); Desc = new qsp_string(); };
-    ~qsp_action() { Image->~qsp_string(); Desc->~qsp_string; };
+    //TODO: requred constructor with predefined fields
+    ~qsp_action() { Image->~qsp_string(); Desc->~qsp_string(); };
 };
 
