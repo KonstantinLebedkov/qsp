@@ -21,6 +21,7 @@
 #include "locations.h"
 #include "statements.h"
 #include "text.h"
+#include "qsp_string.h"
 
 QSPCurAct qspCurActions[QSP_MAXACTIONS];
 int qspCurActionsCount = 0;
@@ -127,22 +128,21 @@ void qspExecAction(int ind)
 QSPString qspGetAllActionsAsCode()
 {
     int count, i;
-    QSPwString temp, res;
+    qsp_string temp, res;
     // res = qspNullString;
     res.clear();
-    temp.clear();
     for (i = 0; i < qspCurActionsCount; ++i)
     {
         res.append(L"ACT '");// was: qspAddText(&res, QSP_STATIC_STR(QSP_FMT("ACT '")), QSP_FALSE);
-        temp = qspReplaceText(qspCurActions[i].Desc, QSP_STATIC_STR(QSP_FMT("'")), QSP_STATIC_STR(QSP_FMT("''")));
+        temp = qspCurActions[i].Desc.replaceText(L"'", L"''");//was: temp = qspReplaceText(qspCurActions[i].Desc, QSP_STATIC_STR(QSP_FMT("'")), QSP_STATIC_STR(QSP_FMT("''")));
         res.append(temp);//was: qspAddText(&res, temp, QSP_FALSE);
-        temp.clear();//was: qspFreeString(temp);
+        temp.~qsp_string();//was: qspFreeString(temp);
         if (qspCurActions[i].Image.Str)
         {
             res.append(L"','");//was: qspAddText(&res, QSP_STATIC_STR(QSP_FMT("','")), QSP_FALSE);
-            temp = qspReplaceText(qspCurActions[i].Image, QSP_STATIC_STR(QSP_FMT("'")), QSP_STATIC_STR(QSP_FMT("''")));
+            temp = qspCurActions[i].Image.replaceText(L"'", L"''");//was:temp = qspReplaceText(qspCurActions[i].Image, QSP_STATIC_STR(QSP_FMT("'")), QSP_STATIC_STR(QSP_FMT("''")));
             res.append(temp);//was: qspAddText(&res, temp, QSP_FALSE);
-            temp.clear();//was: qspFreeString(temp);
+            temp.~qsp_string();//was: qspFreeString(temp);
         }
         res.append(L"':'");//was: qspAddText(&res, QSP_STATIC_STR(QSP_FMT("':")), QSP_FALSE);
         count = qspCurActions[i].OnPressLinesCount;

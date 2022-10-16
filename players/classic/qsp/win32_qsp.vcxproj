@@ -128,6 +128,7 @@
     <ClCompile Include="..\..\..\qsp\variant.cpp" />
     <ClCompile Include="..\..\..\qsp\bindings\default\default_callbacks.cpp" />
     <ClCompile Include="..\..\..\qsp\bindings\default\default_control.cpp" />
+    <ClCompile Include="qsp_string.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\qsp\actions.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="..\..\..\qsp\variant.h" />
     <ClInclude Include="..\..\..\qsp\bindings\bindings_config.h" />
     <ClInclude Include="..\..\..\qsp\bindings\default\qsp_default.h" />
+    <ClInclude Include="qsp_string.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

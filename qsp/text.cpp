@@ -387,8 +387,9 @@ QSP_CHAR *qspStrPos(QSPString txt, QSPString str, QSP_BOOL isIsolated)
 
 QSPString qspReplaceText(QSPString txt, QSPString searchTxt, QSPString repTxt)
 //TODO: it must be replaced and deleted!!!
+// Now it can be replaced by method "replaceText" of class "qsp_string"
 {
-    QSPString res;
+    QSPString res; //ok, that will be output.
     int txtLen, oldTxtLen, bufSize, searchLen, repLen, len;
     QSP_CHAR *newTxt, *pos = qspStrStr(txt, searchTxt);
     if (!pos) return qspGetNewText(txt);

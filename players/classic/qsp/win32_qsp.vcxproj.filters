@@ -96,6 +96,9 @@
     <ClCompile Include="..\..\..\qsp\bindings\default\default_control.cpp">
       <Filter>Source Files\bindings\default</Filter>
     </ClCompile>
+    <ClCompile Include="qsp_string.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\qsp\actions.h">
@@ -166,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\qsp\bindings\qsp.h">
       <Filter>Header Files\bindings</Filter>
+    </ClInclude>
+    <ClInclude Include="qsp_string.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
