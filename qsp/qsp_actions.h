@@ -2,6 +2,11 @@
 #include <vector>
 #include "qsp_action.h"
 #include "qsp_variant.h"
+//TODO: actions have fields for store actID and locID, handled by error handler. may i need to made errorHandler class before qsp_actions class and give link to it?
+// nu eto proshce chem soorujatj interfeisy
+// v principe, errorHandler toje doljen byt singletone.
+// i potomu, ego upominanija doljno bit dostatochno v samoi action, v konstruktore.
+// i togda AddAction strukturno uproshcaetsia do: 1. proverka na yje dobavlennij action, 2. proverka na razmer. 3. push_back v vektor s vizovom konstruktora.
 class qsp_actions
 {
 public:
