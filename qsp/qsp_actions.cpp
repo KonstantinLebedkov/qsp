@@ -32,7 +32,6 @@ void qsp_actions::AddAction(std::vector<qsp_variant*> args, QSPLineOfCode* code,
     qsp_action* act = new qsp_action();
     if (ActIndex((args[0]).Val.Str) != CurActs.end()) return; //Check vector of actions for action named like this. If found, stop adding
     if (CurActs.size() >= QSP_MAXACTIONS) { qspSetError(QSP_ERR_CANTADDACTION); return; }//Check amount of actions. if Limit achieved, stop and set error.
-    
-    CurActs.push_back(act);
+    CurActs.push_back(new qsp_action(args, code, start, end));
     IsActionsChanged = true;
 }
