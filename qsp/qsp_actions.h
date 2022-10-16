@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "qsp_action.h"
+#include "qsp_variant.h"
 class qsp_actions
 {
 public:
@@ -15,7 +16,7 @@ public:
 private:
     std::vector<qsp_action*>::iterator ActIndex(qsp_string name);
 public:
-    void AddAction(QSPVariant* args, QSP_TINYINT count, QSPLineOfCode* code, int start, int end);
+    void AddAction(std::vector<qsp_variant*> args, QSPLineOfCode* code, int start, int end);
     void Execute();
     qsp_string GetAllActionsAsCode();
     void StatementSinglelineAddAct();
