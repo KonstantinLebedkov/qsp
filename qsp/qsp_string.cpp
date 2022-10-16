@@ -46,4 +46,8 @@ bool qsp_string::IsAnyString()
     str.SkipSpaces();
     return str.empty();
 }
+qsp_string& qsp_string::operator=(const std::wstring& source)
+{
+    this->append(source);
+}
 ;

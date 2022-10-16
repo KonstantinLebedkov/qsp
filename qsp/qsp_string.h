@@ -17,5 +17,7 @@ public:
     void replaceTextInSelf(const qsp_string from, const qsp_string to);
     void replaceTextInSelf(const std::wstring from, const std::wstring to);
     bool IsAnyString();//Skip first spaces if existing and check for existing something else
+
+    qsp_string& operator=(const std::wstring& source);
 };
 
