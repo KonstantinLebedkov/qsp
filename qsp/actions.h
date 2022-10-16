@@ -23,17 +23,17 @@
 
     #define QSP_MAXACTIONS 50
 
-    typedef struct
+    typedef struct //old declaration. must be removed
     {
-        qsp_string Image;
-        qsp_string Desc;
+        qsp_string *Image;
+        qsp_string *Desc;
         QSPLineOfCode *OnPressLines;
         int OnPressLinesCount;
         int Location;
         int ActIndex;
     } QSPCurAct;
 
-    extern QSPCurAct qspCurActions[QSP_MAXACTIONS];
+    extern QSPCurAct qspCurActions[QSP_MAXACTIONS]; //old declaration. it m
     extern int qspCurActionsCount;
     extern int qspCurSelAction;
     extern QSP_BOOL qspIsActionsChanged;

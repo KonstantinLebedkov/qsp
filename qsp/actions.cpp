@@ -38,8 +38,8 @@ void qspClearActions(QSP_BOOL isFirst)
     {
         for (i = 0; i < qspCurActionsCount; ++i)
         {
-            qspFreeString(qspCurActions[i].Image);
-            qspFreeString(qspCurActions[i].Desc);
+            qspCurActions[i].Image->~qsp_string();//was: qspFreeString(qspCurActions[i].Image);
+            qspCurActions[i].Desc->~qsp_string();//was: qspFreeString(qspCurActions[i].Desc);
             qspFreePrepLines(qspCurActions[i].OnPressLines, qspCurActions[i].OnPressLinesCount);
         }
         qspIsActionsChanged = QSP_TRUE;
@@ -87,7 +87,7 @@ INLINE int qspActIndex(QSPString name)
 void qspAddAction(QSPVariant *args, QSP_TINYINT count, QSPLineOfCode *code, int start, int end)
 {
     QSPCurAct *act;
-    QSPString imgPath;
+    qsp_string *imgPath;
     if (qspActIndex(QSP_STR(args[0])) >= 0) return;
     if (qspCurActionsCount == QSP_MAXACTIONS)
     {
@@ -95,12 +95,12 @@ void qspAddAction(QSPVariant *args, QSP_TINYINT count, QSPLineOfCode *code, int 
         return;
     }
     if (count == 2 && qspIsAnyString(QSP_STR(args[1])))
-        imgPath = qspGetNewText(QSP_STR(args[1]));
+        imgPath = new qsp_string(QSP_STR(args[1]));
     else
-        imgPath = qspNullString;
+        imgPath = new qsp_string();
     act = qspCurActions + qspCurActionsCount++;
     act->Image = imgPath;
-    act->Desc = qspGetNewText(QSP_STR(args[0]));
+    act->Desc = new qsp_string(QSP_STR(args[0]));
     qspCopyPrepLines(&act->OnPressLines, code, start, end);
     act->OnPressLinesCount = end - start;
     act->Location = qspRealCurLoc;
@@ -232,8 +232,8 @@ QSP_BOOL qspStatementDelAct(QSPVariant *args, QSP_TINYINT count, QSPString *jump
     int actInd = qspActIndex(QSP_STR(args[0]));
     if (actInd < 0) return QSP_FALSE;
     if (qspCurSelAction >= actInd) qspCurSelAction = -1;
-    qspFreeString(qspCurActions[actInd].Image);
-    qspFreeString(qspCurActions[actInd].Desc);
+    qspCurActions[actInd].Image->~qsp_string();//was: qspFreeString(qspCurActions[actInd].Image);
+    qspCurActions[actInd].Desc->~qsp_string();//was: qspFreeString(qspCurActions[actInd].Desc);
     qspFreePrepLines(qspCurActions[actInd].OnPressLines, qspCurActions[actInd].OnPressLinesCount);
     --qspCurActionsCount;
     while (actInd < qspCurActionsCount)

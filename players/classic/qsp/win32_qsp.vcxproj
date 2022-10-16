@@ -118,6 +118,7 @@
     <ClCompile Include="..\..\..\qsp\menu.cpp" />
     <ClCompile Include="..\..\..\qsp\objects.cpp" />
     <ClCompile Include="..\..\..\qsp\playlist.cpp" />
+    <ClCompile Include="..\..\..\qsp\qsp_action.cpp" />
     <ClCompile Include="..\..\..\qsp\regexp.cpp" />
     <ClCompile Include="..\..\..\qsp\statements.cpp" />
     <ClCompile Include="..\..\..\qsp\text.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="..\..\..\qsp\menu.h" />
     <ClInclude Include="..\..\..\qsp\objects.h" />
     <ClInclude Include="..\..\..\qsp\playlist.h" />
+    <ClInclude Include="..\..\..\qsp\qsp_action.h" />
     <ClInclude Include="..\..\..\qsp\regexp.h" />
     <ClInclude Include="..\..\..\qsp\statements.h" />
     <ClInclude Include="..\..\..\qsp\text.h" />
