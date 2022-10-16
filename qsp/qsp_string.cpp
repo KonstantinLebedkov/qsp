@@ -48,6 +48,7 @@ bool qsp_string::IsAnyString()
 }
 qsp_string& qsp_string::operator=(const std::wstring& source)
 {
-    this->append(source);
+    this->assign(source);
+    return *this;
 }
 ;
