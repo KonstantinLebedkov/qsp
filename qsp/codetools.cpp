@@ -627,7 +627,7 @@ INLINE int qspProcessPreformattedStrings(QSPString data, QSPLineOfCode **strs)
 INLINE int qspProcessEOLExtensions(QSPLineOfCode *s, int count, QSPLineOfCode **strs)
 {
     QSPLineOfCode *ret;
-    QSPwString strBuf, eol;
+    qsp_string strBuf, eol;
     strBuf.clear();
     eol.clear();
     int len, lastNum = 0, i = 0, bufSize = 8, newCount = 0;

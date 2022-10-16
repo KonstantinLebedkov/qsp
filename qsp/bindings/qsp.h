@@ -88,8 +88,6 @@ typedef struct
     QSP_CHAR *End;
 } QSPString;
 
-typedef std::wstring QSPwString;
-
     typedef struct
     {
         QSPString Image;

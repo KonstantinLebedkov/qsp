@@ -22,7 +22,7 @@
 
     extern QSP_BOOL qspIsDebug;
     //extern QSPString qspCurDesc;
-    QSPwString qspCurDesc;
+    qsp_string qspCurDesc;
     extern QSPString qspCurVars;
     extern QSPString qspCurInput;
     extern QSPString qspViewPath;

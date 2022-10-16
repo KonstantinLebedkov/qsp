@@ -19,13 +19,14 @@
 #include "declarations.h"
 #include "codetools.h"
 #include "variant.h"
+#include "qsp_string.h"
 
     #define QSP_MAXACTIONS 50
 
     typedef struct
     {
-        QSPString Image;
-        QSPString Desc;
+        qsp_string Image;
+        qsp_string Desc;
         QSPLineOfCode *OnPressLines;
         int OnPressLinesCount;
         int Location;

@@ -106,7 +106,7 @@ int qspLocIndex(QSPString name)
 INLINE void qspExecLocByIndex(int locInd, QSP_BOOL isChangeDesc)
 {
     QSPVariant actionArgs[2];
-    QSPwString str;
+    qsp_string str;
     QSPLineOfCode *code;
     int i, count, oldLoc, oldActIndex, oldLine, oldRefreshCount = qspRefreshCount;
     QSPLocation *loc = qspLocs + locInd;

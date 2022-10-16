@@ -39,7 +39,7 @@ void qspClearPlayList(QSP_BOOL isFirst)
 
 INLINE void qspPlayFile(QSPString s, int volume, QSP_BOOL isAddToPlayList)
 {
-    QSPwString file;
+    qsp_string file;
     QSP_CHAR buf[4];
     if (!qspIsAnyString(s)) return;
     if (volume < 0)

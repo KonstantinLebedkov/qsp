@@ -323,11 +323,11 @@ int qspDeCodeGetIntVal(QSPString val)
     return num;
 }
 
-void qspCodeWriteIntVal(QSPwString *s, int val, QSP_BOOL isCode)
+void qspCodeWriteIntVal(qsp_string *s, int val, QSP_BOOL isCode)
 {
     QSP_CHAR buf[12];
-    QSPwString temp;
-    QSPwString str = qspNumToStr(buf, val);
+    qsp_string temp;
+    qsp_string str = qspNumToStr(buf, val);
     if (isCode)
     {
         temp = qspCodeDeCode(str, QSP_TRUE);
@@ -339,9 +339,9 @@ void qspCodeWriteIntVal(QSPwString *s, int val, QSP_BOOL isCode)
     s->append(L"\r\n");//was: qspAddText(s, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
 }
 
-void qspCodeWriteVal(QSPwString *s, QSPwString val, QSP_BOOL isCode)
+void qspCodeWriteVal(qsp_string *s, qsp_string val, QSP_BOOL isCode)
 {
-    QSPwString temp;
+    qsp_string temp;
     if (val.Str) //а здесь должна быть просто проверка что строка val не пустая.
     {
         if (isCode)
