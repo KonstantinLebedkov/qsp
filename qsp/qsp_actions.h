@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include "qsp_action.h"
-#include "qsp_variant.h"
 //TODO: actions have fields for store actID and locID, handled by error handler. may i need to made errorHandler class before qsp_actions class and give link to it?
 // nu eto proshce chem soorujatj interfeisy
 // v principe, errorHandler toje doljen byt singletone.
