@@ -627,12 +627,14 @@ INLINE int qspProcessPreformattedStrings(QSPString data, QSPLineOfCode **strs)
 INLINE int qspProcessEOLExtensions(QSPLineOfCode *s, int count, QSPLineOfCode **strs)
 {
     QSPLineOfCode *ret;
-    QSPString strBuf, eol;
+    QSPwString strBuf, eol;
+    strBuf.clear();
+    eol.clear();
     int len, lastNum = 0, i = 0, bufSize = 8, newCount = 0;
     ret = (QSPLineOfCode *)malloc(bufSize * sizeof(QSPLineOfCode));
     while (i < count)
     {
-        qspAddText(&strBuf, s[i].Str, QSP_TRUE);
+        strBuf.append(s[i].Str);//was: qspAddText(&strBuf, s[i].Str, QSP_TRUE);
         len = qspStrLen(strBuf);
         if (len >= QSP_STATIC_LEN(QSP_PREEOLEXT QSP_EOLEXT))
         {
@@ -642,7 +644,7 @@ INLINE int qspProcessEOLExtensions(QSPLineOfCode *s, int count, QSPLineOfCode **
             {
                 if (++i >= count) break;
                 strBuf.End -= QSP_STATIC_LEN(QSP_EOLEXT);
-                qspAddText(&strBuf, s[i].Str, QSP_FALSE);
+                strBuf.append(s[i].Str);//was: qspAddText(&strBuf, s[i].Str, QSP_FALSE);
                 len = qspStrLen(strBuf);
                 eol = strBuf;
                 eol.Str += len - QSP_STATIC_LEN(QSP_PREEOLEXT QSP_EOLEXT);

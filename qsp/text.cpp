@@ -153,6 +153,7 @@ int qspSplitStr(QSPString str, QSPString delim, QSPString **res)
 }
 
 void qspCopyStrs(QSPString **dest, QSPString *src, int start, int end)
+//TODO: it must be replaced and deleted!!!
 {
     int count = end - start;
     if (src && count)
@@ -167,6 +168,7 @@ void qspCopyStrs(QSPString **dest, QSPString *src, int start, int end)
 }
 
 void qspFreeStrs(QSPString *strs, int count)
+//TODO: it must be replaced and deleted!!!
 {
     if (strs)
     {
@@ -384,6 +386,7 @@ QSP_CHAR *qspStrPos(QSPString txt, QSPString str, QSP_BOOL isIsolated)
 }
 
 QSPString qspReplaceText(QSPString txt, QSPString searchTxt, QSPString repTxt)
+//TODO: it must be replaced and deleted!!!
 {
     QSPString res;
     int txtLen, oldTxtLen, bufSize, searchLen, repLen, len;
@@ -414,6 +417,7 @@ QSPString qspReplaceText(QSPString txt, QSPString searchTxt, QSPString repTxt)
 }
 
 QSPString qspFormatText(QSPString txt, QSP_BOOL canReturnSelf)
+// this is something complex. i didnt try to understand it yet
 {
     QSPVariant val;
     QSPString expr, res;

@@ -894,8 +894,8 @@ INLINE QSP_BOOL qspStatementImplicitStatement(QSPVariant *args, QSP_TINYINT coun
     if (QSP_ISDEF(args[0].Type))
     {
         qspConvertVariantTo(args, QSP_TYPE_STRING);
-        qspAddText(&qspCurDesc, QSP_STR(args[0]), QSP_FALSE);
-        qspAddText(&qspCurDesc, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
+        qspCurDesc.append(QSP_STR(args[0]));//was: qspAddText(&qspCurDesc, QSP_STR(args[0]), QSP_FALSE);
+        qspCurDesc.append(L"\r\n");//was: qspAddText(&qspCurDesc, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
         qspIsMainDescChanged = QSP_TRUE;
     }
     return QSP_FALSE;
@@ -908,35 +908,35 @@ INLINE QSP_BOOL qspStatementAddText(QSPVariant *args, QSP_TINYINT count, QSPStri
     case qspStatP:
         if (!qspIsEmpty(QSP_STR(args[0])))
         {
-            qspAddText(&qspCurVars, QSP_STR(args[0]), QSP_FALSE);
+            qspCurVars.append(QSP_STR(args[0]));//was: qspAddText(&qspCurVars, QSP_STR(args[0]), QSP_FALSE);
             qspIsVarsDescChanged = QSP_TRUE;
         }
         break;
     case qspStatMP:
         if (!qspIsEmpty(QSP_STR(args[0])))
         {
-            qspAddText(&qspCurDesc, QSP_STR(args[0]), QSP_FALSE);
+            qspCurDesc.append(QSP_STR(args[0]));//was: qspAddText(&qspCurDesc, QSP_STR(args[0]), QSP_FALSE);
             qspIsMainDescChanged = QSP_TRUE;
         }
         break;
     case qspStatPL:
-        if (count) qspAddText(&qspCurVars, QSP_STR(args[0]), QSP_FALSE);
-        qspAddText(&qspCurVars, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
+        if (count) qspCurVars.append(QSP_STR(args[0]));//was: qspAddText(&qspCurVars, QSP_STR(args[0]), QSP_FALSE);
+        qspCurVars.append(L"\r\n");//was: qspAddText(&qspCurVars, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
         qspIsVarsDescChanged = QSP_TRUE;
         break;
     case qspStatMPL:
-        if (count) qspAddText(&qspCurDesc, QSP_STR(args[0]), QSP_FALSE);
-        qspAddText(&qspCurDesc, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
+        if (count) qspCurDesc.append(QSP_STR(args[0]));//was: qspAddText(&qspCurDesc, QSP_STR(args[0]), QSP_FALSE);
+        qspCurDesc.append(L"\r\n");//was: qspAddText(&qspCurDesc, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
         qspIsMainDescChanged = QSP_TRUE;
         break;
     case qspStatNL:
-        qspAddText(&qspCurVars, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
-        if (count) qspAddText(&qspCurVars, QSP_STR(args[0]), QSP_FALSE);
+        qspCurVars.append(L"\r\n");//was: qspAddText(&qspCurVars, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
+        if (count) qspCurVars.append(QSP_STR(args[0]));//was: qspAddText(&qspCurVars, QSP_STR(args[0]), QSP_FALSE);
         qspIsVarsDescChanged = QSP_TRUE;
         break;
     case qspStatMNL:
-        qspAddText(&qspCurDesc, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
-        if (count) qspAddText(&qspCurDesc, QSP_STR(args[0]), QSP_FALSE);
+        qspCurDesc.append(L"\r\n");//was: qspAddText(&qspCurDesc, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
+        if (count) qspCurDesc.append(QSP_STR(args[0]));//was: qspAddText(&qspCurDesc, QSP_STR(args[0]), QSP_FALSE);
         qspIsMainDescChanged = QSP_TRUE;
         break;
     }

@@ -21,7 +21,8 @@
     #define QSP_RANDMASK 0x7FFFFFFF
 
     extern QSP_BOOL qspIsDebug;
-    extern QSPString qspCurDesc;
+    //extern QSPString qspCurDesc;
+    QSPwString qspCurDesc;
     extern QSPString qspCurVars;
     extern QSPString qspCurInput;
     extern QSPString qspViewPath;

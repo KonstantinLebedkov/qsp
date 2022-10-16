@@ -323,34 +323,35 @@ int qspDeCodeGetIntVal(QSPString val)
     return num;
 }
 
-void qspCodeWriteIntVal(QSPString *s, int val, QSP_BOOL isCode)
+void qspCodeWriteIntVal(QSPwString *s, int val, QSP_BOOL isCode)
 {
     QSP_CHAR buf[12];
-    QSPString temp, str = qspNumToStr(buf, val);
+    QSPwString temp;
+    QSPwString str = qspNumToStr(buf, val);
     if (isCode)
     {
         temp = qspCodeDeCode(str, QSP_TRUE);
-        qspAddText(s, temp, QSP_FALSE);
-        qspFreeString(temp);
+        s->append(temp);//was: qspAddText(s, temp, QSP_FALSE);
+        temp.clear();//was:qspFreeString(temp);
     }
     else
-        qspAddText(s, str, QSP_FALSE);
-    qspAddText(s, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
+        s->append(str);//was: qspAddText(s, str, QSP_FALSE);
+    s->append(L"\r\n");//was: qspAddText(s, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
 }
 
-void qspCodeWriteVal(QSPString *s, QSPString val, QSP_BOOL isCode)
+void qspCodeWriteVal(QSPwString *s, QSPwString val, QSP_BOOL isCode)
 {
-    QSPString temp;
-    if (val.Str)
+    QSPwString temp;
+    if (val.Str) //а здесь должна быть просто проверка что строка val не пустая.
     {
         if (isCode)
         {
             temp = qspCodeDeCode(val, QSP_TRUE);
-            qspAddText(s, temp, QSP_FALSE);
-            qspFreeString(temp);
+            s->append(temp);//was: qspAddText(s, temp, QSP_FALSE);
+            temp.clear();//was: qspFreeString(temp);
         }
         else
-            qspAddText(s, val, QSP_FALSE);
+            s->append(val);//was: qspAddText(s, val, QSP_FALSE);
     }
-    qspAddText(s, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
+    s->append(L"\r\n");//was: qspAddText(s, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
 }

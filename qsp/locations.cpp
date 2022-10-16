@@ -106,7 +106,7 @@ int qspLocIndex(QSPString name)
 INLINE void qspExecLocByIndex(int locInd, QSP_BOOL isChangeDesc)
 {
     QSPVariant actionArgs[2];
-    QSPString str;
+    QSPwString str;
     QSPLineOfCode *code;
     int i, count, oldLoc, oldActIndex, oldLine, oldRefreshCount = qspRefreshCount;
     QSPLocation *loc = qspLocs + locInd;
@@ -128,7 +128,7 @@ INLINE void qspExecLocByIndex(int locInd, QSP_BOOL isChangeDesc)
     }
     if (isChangeDesc)
     {
-        qspFreeString(qspCurDesc);
+        qspCurDesc.clear();//was: qspFreeString(qspCurDesc);
         qspCurDesc = str;
         qspIsMainDescChanged = QSP_TRUE;
     }
@@ -136,10 +136,10 @@ INLINE void qspExecLocByIndex(int locInd, QSP_BOOL isChangeDesc)
     {
         if (!qspIsEmpty(str))
         {
-            qspAddText(&qspCurDesc, str, QSP_FALSE);
+            qspCurDesc.append(str);//was: qspAddText(&qspCurDesc, str, QSP_FALSE);
             qspIsMainDescChanged = QSP_TRUE;
         }
-        qspFreeString(str);
+        str.clear();//was: qspFreeString(str);
     }
     for (i = 0; i < QSP_MAXACTIONS; ++i)
     {

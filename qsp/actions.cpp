@@ -127,37 +127,39 @@ void qspExecAction(int ind)
 QSPString qspGetAllActionsAsCode()
 {
     int count, i;
-    QSPString temp, res;
-    res = qspNullString;
+    QSPwString temp, res;
+    // res = qspNullString;
+    res.clear();
+    temp.clear();
     for (i = 0; i < qspCurActionsCount; ++i)
     {
-        qspAddText(&res, QSP_STATIC_STR(QSP_FMT("ACT '")), QSP_FALSE);
+        res.append(L"ACT '");// was: qspAddText(&res, QSP_STATIC_STR(QSP_FMT("ACT '")), QSP_FALSE);
         temp = qspReplaceText(qspCurActions[i].Desc, QSP_STATIC_STR(QSP_FMT("'")), QSP_STATIC_STR(QSP_FMT("''")));
-        qspAddText(&res, temp, QSP_FALSE);
-        qspFreeString(temp);
+        res.append(temp);//was: qspAddText(&res, temp, QSP_FALSE);
+        temp.clear();//was: qspFreeString(temp);
         if (qspCurActions[i].Image.Str)
         {
-            qspAddText(&res, QSP_STATIC_STR(QSP_FMT("','")), QSP_FALSE);
+            res.append(L"','");//was: qspAddText(&res, QSP_STATIC_STR(QSP_FMT("','")), QSP_FALSE);
             temp = qspReplaceText(qspCurActions[i].Image, QSP_STATIC_STR(QSP_FMT("'")), QSP_STATIC_STR(QSP_FMT("''")));
-            qspAddText(&res, temp, QSP_FALSE);
-            qspFreeString(temp);
+            res.append(temp);//was: qspAddText(&res, temp, QSP_FALSE);
+            temp.clear();//was: qspFreeString(temp);
         }
-        qspAddText(&res, QSP_STATIC_STR(QSP_FMT("':")), QSP_FALSE);
+        res.append(L"':'");//was: qspAddText(&res, QSP_STATIC_STR(QSP_FMT("':")), QSP_FALSE);
         count = qspCurActions[i].OnPressLinesCount;
         if (count == 1 && qspIsAnyString(qspCurActions[i].OnPressLines->Str))
-            qspAddText(&res, qspCurActions[i].OnPressLines->Str, QSP_FALSE);
+            res.append(qspCurActions[i].OnPressLines->Str);//was:  qspAddText(&res, qspCurActions[i].OnPressLines->Str, QSP_FALSE);
         else
         {
             if (count >= 2)
             {
-                qspAddText(&res, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
+                res.append(L"\r\n");//was: qspAddText(&res, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
                 temp = qspJoinPrepLines(qspCurActions[i].OnPressLines, count, QSP_STATIC_STR(QSP_STRSDELIM));
-                qspAddText(&res, temp, QSP_FALSE);
-                qspFreeString(temp);
+                res.append(temp);// was: qspAddText(&res, temp, QSP_FALSE);
+                temp.clear();//was:  qspFreeString(temp);
             }
-            qspAddText(&res, QSP_STATIC_STR(QSP_STRSDELIM QSP_FMT("END")), QSP_FALSE);
+            res.append(L"\r\nEND"); //was: qspAddText(&res, QSP_STATIC_STR(QSP_STRSDELIM QSP_FMT("END")), QSP_FALSE);
         }
-        qspAddText(&res, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
+        res.append(L"\r\n");//was: qspAddText(&res, QSP_STATIC_STR(QSP_STRSDELIM), QSP_FALSE);
     }
     return res;
 }

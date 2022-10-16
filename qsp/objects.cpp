@@ -50,12 +50,13 @@ void qspClearObjects(QSP_BOOL isFirst)
 void qspClearObjectsWithNotify()
 {
     QSPVariant v;
-    QSPString *objs;
+    QSPString *objs; //
     int i, oldRefreshCount, oldCount = qspCurObjectsCount;
     if (oldCount)
     {
         objs = (QSPString *)malloc(oldCount * sizeof(QSPString));
         for (i = 0; i < oldCount; ++i)
+            //trouble is here: objs must be vector of strings. right now it is array of QSPStrings<old> located 
             qspAddText(objs + i, qspCurObjects[i].Desc, QSP_TRUE);
         qspClearObjects(QSP_FALSE);
         v.Type = QSP_TYPE_STRING;
