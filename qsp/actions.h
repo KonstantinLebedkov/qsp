@@ -33,7 +33,7 @@
         int ActIndex;
     } QSPCurAct;
 
-    extern QSPCurAct qspCurActions[QSP_MAXACTIONS]; //old declaration. it m
+    extern QSPCurAct qspCurActions[QSP_MAXACTIONS]; //old declaration. it must be removed
     extern int qspCurActionsCount;
     extern int qspCurSelAction;
     extern QSP_BOOL qspIsActionsChanged;
