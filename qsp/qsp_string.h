@@ -10,6 +10,7 @@ private:
 public:
     //TODO: constructors required - default and assigning
     qsp_string() {};
+    qsp_string(std::wstring str) { this->assign(str); };
     ~qsp_string(){};
     qsp_string replaceText(const qsp_string from, const qsp_string to);
     qsp_string replaceText(const std::wstring from, const std::wstring to);
