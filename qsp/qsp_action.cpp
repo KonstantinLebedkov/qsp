@@ -1,7 +1,7 @@
 #include "qsp_action.h"
 #include "qsp_errors.h"
 
-qsp_action::qsp_action(std::vector<qsp_variant*> args, QSPLineOfCode* code, int start, int end)
+qsp_action::qsp_action(std::vector<qsp_variant*> args, qsp_LineOfCode* code, int start, int end)
 {
     if (args.size() == 2) if (args[1]->IsAnyString()) Image = new qsp_string(*args[1]->Val.Str);
     Desc = new qsp_string(*args[0]->Val.Str);
