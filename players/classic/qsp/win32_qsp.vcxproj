@@ -124,6 +124,7 @@
     <ClCompile Include="..\..\..\qsp\qsp_CachedStat.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_errors.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_LineOfCode.cpp" />
+    <ClCompile Include="..\..\..\qsp\qsp_LinesOfCode.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_string.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_variant.cpp" />
     <ClCompile Include="..\..\..\qsp\regexp.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="..\..\..\qsp\qsp_CachedStat.h" />
     <ClInclude Include="..\..\..\qsp\qsp_errors.h" />
     <ClInclude Include="..\..\..\qsp\qsp_LineOfCode.h" />
+    <ClInclude Include="..\..\..\qsp\qsp_LinesOfCode.h" />
     <ClInclude Include="..\..\..\qsp\qsp_string.h" />
     <ClInclude Include="..\..\..\qsp\qsp_variant.h" />
     <ClInclude Include="..\..\..\qsp\regexp.h" />

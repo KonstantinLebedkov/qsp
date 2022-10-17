@@ -4,11 +4,12 @@
 class qsp_LineOfCode
 {
 public:
-    qsp_string Str;
-    int LineNum;
-    bool IsMultiline;
-    qsp_string Label;
-    qsp_CachedStat* Stats;
-    int StatsCount;
+    qsp_string Str; //string of line?
+    int LineNum; //number of line in code?
+    bool IsMultiline;//is part of multistring?
+    qsp_string Label; //label of string (if exists)
+    std::vector<qsp_CachedStat*> Stats; //statements in the string
+    qsp_LineOfCode& operator=(const qsp_LineOfCode& src);//copying constructor
+    ~qsp_LineOfCode();//destructor
 };
 
