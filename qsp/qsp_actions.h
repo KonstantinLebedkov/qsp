@@ -17,7 +17,7 @@ public:
     void AddAction(std::vector<qsp_variant*> args, qsp_LinesOfCode* code, int start, int end);// adds one action, requres vector of varians (really, variant isnt needed, string will be enought), string with code, positions of start and end in this string.
     //TODO: go away of vector<variant> to vector<string>
     //go away from usege start and end (it isnt used now, but callers may be oriented to usage as sending full string and start from the middle, and end in the middle too.) that signs, it is requred substr usage somewhere.
-    void Execute();
+    void Execute(int ind);
     qsp_string GetAllActionsAsCode();
     void StatementSinglelineAddAct();
     void StatementMultilineAddAct();

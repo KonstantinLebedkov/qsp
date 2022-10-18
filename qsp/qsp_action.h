@@ -14,5 +14,6 @@ public:
     int ActIndex; //index of action. for handling errors
     qsp_action(std::vector<qsp_variant*> args, qsp_LinesOfCode* code, int start, int end);
     ~qsp_action() { Image->~qsp_string(); Desc->~qsp_string(); OnPressLines->~qsp_LinesOfCode(); };
+    void Execute();
 };
 

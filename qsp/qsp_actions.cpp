@@ -33,3 +33,13 @@ void qsp_actions::AddAction(std::vector<qsp_variant*> args, qsp_LinesOfCode* cod
     CurActs.push_back(new qsp_action(args, code, start, end));
     IsActionsChanged = true;
 }
+
+void qsp_actions::Execute(int ind)
+{
+    if (ind >= 0 && ind < CurActs.size()-1)
+    {
+        std::vector<qsp_action*>::iterator act = CurActs.begin() + ind;
+        (*act)->Execute();
+        /* switch the current state */
+    }
+}

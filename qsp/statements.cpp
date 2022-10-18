@@ -135,7 +135,7 @@ void qspInitStats()
     qspAddStatement(qspStatClose, qspStatementCloseFile, 0, 1, 1);
     qspAddStatement(qspStatClS, qspStatementClear, 0, 0);
     qspAddStatement(qspStatCmdClear, qspStatementClear, 0, 0);
-    qspAddStatement(qspStatCopyArr, qspStatementCopyArr, 2, 4, 4, 4, 0, 0);
+    qspAddStatement(qspStatCopyArr, qspStatementCopyArr, 2, 4, 4, 4, 0, 0); 
     qspAddStatement(qspStatDelAct, qspStatementDelAct, 1, 1, 1);
     qspAddStatement(qspStatDelObj, qspStatementDelObj, 1, 1, 1);
     qspAddStatement(qspStatDynamic, qspStatementDynamic, 1, 20, 1, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64);
@@ -270,25 +270,34 @@ INLINE int qspSearchElse(QSPLineOfCode *s, int start, int end)
 
 INLINE int qspSearchEnd(QSPLineOfCode *s, int start, int end)
 {
-    int c = 1;
-    s += start;
+    int c = 1; //counter? setted to 1
+    s += start; //pointer move to start of looking segment
     while (start < end)
     {
-        switch (s->Stats->Stat)
+        switch (s->Stats->Stat) //проверяем стейтмент линии.
         {
-        case qspStatAct:
-        case qspStatLoop:
-        case qspStatIf:
-            if (s->IsMultiline) ++c;
-            break;
-        case qspStatEnd:
-            if (!(--c)) return start;
-            break;
+        case qspStatAct: //если экшен
+        case qspStatLoop: // или луп
+        case qspStatIf: // или ИФ
+            if (s->IsMultiline) ++c; //тогда каунтер Ц сдвигаем на +1
+            break; //и делаем брейк кейса.
+        case qspStatEnd: //если стейтмент = энд,
+            if (!(--c)) return start; // и каунтер Ц декрементнутый на 1, не стал фолс, тоесть нулём, возвращаем старт.
+            break;// а если не вернули старт, кидаем брейк на кейс.
         }
-        ++start;
-        ++s;
+        ++start; //сдвигаем номер начала 
+        ++s; //и сдвигаем пойнтер
     }
     return -1;
+    // возвращает -1, кроме случаев:
+    // мультилайн, со стейтментом видов (акт, луп, иф), имеет более одной линии.
+    // тогда, если линий хотя бы две, первая линия сделает +1 к каунтеру Ц
+    // опционально, прочие линии с иным стейтментом, скипнутся
+    // эндовая линия декрементнет Ц,
+    // обнаружив энд, декрементнувший Ц до нуля, и сделавший его фолсом, возвращаем старт (тоесть номер линии с этим эндом)
+    // вариант сингл-лайна. для примера иф, в одну строку со своим эндом. он не инкрементнет каунтер вложений Ц, но и брейкнет кейс, тем самым для сингл-лайновых акт-луп-иф не стоит искать энд.
+    // и да, для моих целей лучше возвращать итератор, мб? и поиск выполнять надо не в Line, а в Lines.
+    // хотя стоп! в одной Line может быть несколько стейтментов! но цикл двигает строку.так что по идее, одна строка = один стейт.
 }
 
 INLINE int qspSearchLabel(QSPLineOfCode *s, int start, int end, QSPString str)

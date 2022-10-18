@@ -1,5 +1,7 @@
 #pragma once
 #include "qsp_string.h"
+
+#define SetError(x) qsp_errors::ErrorsHandler().SetError(x)
 enum
 {
     QSP_ERR_DIVBYZERO = 100,

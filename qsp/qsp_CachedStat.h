@@ -1,6 +1,8 @@
 #pragma once
-#include "qsp_CachedArg.h"
 #include <vector>
+#include "qsp_CachedArg.h"
+#include "qsp_Statement.h"
+
 class qsp_CachedStat
 {
 public:

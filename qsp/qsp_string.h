@@ -17,7 +17,11 @@ public:
     void replaceTextInSelf(const qsp_string from, const qsp_string to);
     void replaceTextInSelf(const std::wstring from, const std::wstring to);
     bool IsAnyString();//Skip first spaces if existing and check for existing something else
-
+    int ToInteger();//convert to integer, to 0 if convertation impossible
+    void UpperString();//convert UpCase
+    void LowerString();//convert LowCase
+    void DeleteSpaces(); //remove starting and ending spaces
     qsp_string& operator=(const std::wstring& source);
 };
 
+int qspStrsComp(qsp_string str1, qsp_string str2);
