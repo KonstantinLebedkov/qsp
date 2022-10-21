@@ -43,7 +43,6 @@ private:
 	static bool StatementJump(qsp_variant* args, char count, qsp_string* jumpTo, char extArg);
 	static bool StatementAddText(qsp_variant* args, char count, qsp_string* jumpTo, char extArg);
 	static bool StatementMsg(qsp_variant* args, char count, qsp_string* jumpTo, char extArg);
-
 };
 
 

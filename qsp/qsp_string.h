@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
 
+
+#define QSP_OPSLEVELS 2
+
 class qsp_string : public std::wstring
 {
 private:
@@ -21,7 +24,10 @@ public:
     void UpperString();//convert UpCase
     void LowerString();//convert LowCase
     void DeleteSpaces(); //remove starting and ending spaces
+    void ExprValue(); //пока войд, а вообще должен возвращать кусп-вариант.
+private:
+    int CompileExpression();
+    char OperatorOpCode();
+public:
     qsp_string& operator=(const std::wstring& source);
 };
-
-int qspStrsComp(qsp_string str1, qsp_string str2);

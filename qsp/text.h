@@ -84,7 +84,7 @@
     }
 
     INLINE QSPString qspStringFromPair(QSP_CHAR *start, QSP_CHAR *end)
-    {
+    {// равноценно применению substr с указанием начала и длины извлекаемого.
         QSPString string;
         string.Str = start;
         string.End = end;
@@ -217,7 +217,7 @@
         return delta;
     }
 
-    INLINE int qspStrsComp(QSPString str1, QSPString str2)
+    INLINE int qspStrsComp(QSPString str1, QSPString str2) //use as str2.compare(str1)
     {
         int delta = 0;
         QSP_CHAR *pos1 = str1.Str, *pos2 = str2.Str;

@@ -28,8 +28,8 @@
 #include "time.h"
 #include "variables.h"
 
-QSPMathOperation qspOps[qspOpLast_Operation];
-QSPMathOpName qspOpsNames[QSP_OPSLEVELS][QSP_MAXOPSNAMES];
+QSPMathOperation qspOps[qspOpLast_Operation]; //member MathOperations of qsp_MathOps
+QSPMathOpName qspOpsNames[QSP_OPSLEVELS][QSP_MAXOPSNAMES]; //member MathOpNames of qsp_MathOps
 int qspOpsNamesCounts[QSP_OPSLEVELS];
 int qspOpMaxLen = 0;
 
@@ -101,17 +101,17 @@ INLINE void qspAddOpName(QSP_TINYINT opCode, QSP_CHAR *opName, int level)
 }
 
 INLINE int qspMathOpsCompare(const void *opName1, const void *opName2)
-{
+{ // есть нормальный компаратор, реализованный как метод стринга. не вижу смысла писать дес€ток идентичных процедур
     return qspStrsComp(((QSPMathOpName *)opName1)->Name, ((QSPMathOpName *)opName2)->Name);
 }
 
 INLINE int qspMathOpStringFullCompare(const void *name, const void *compareTo)
-{
+{ //см. выше
     return qspStrsComp(*(QSPString *)name, ((QSPMathOpName *)compareTo)->Name);
 }
 
 INLINE int qspMathOpStringCompare(const void *name, const void *compareTo)
-{
+{//см.выше, но сравниваютс€ обрезки строк размерностью длины второй строки.
     QSPMathOpName *opName = (QSPMathOpName *)compareTo;
     return qspStrsNComp(*(QSPString *)name, opName->Name, qspStrLen(opName->Name));
 }
@@ -1091,11 +1091,12 @@ INLINE int qspCompileExpression(QSPString s, QSPVariant *compValues, QSP_TINYINT
 
 QSPVariant qspExprValue(QSPString expr)
 {
-    QSPVariant compValues[QSP_MAXITEMS];
-    QSP_TINYINT compOpCodes[QSP_MAXITEMS], compArgsCounts[QSP_MAXITEMS];
+    QSPVariant compValues[QSP_MAXITEMS]; //объ€вл€ет массив вариантов, размерностью 200. нахуа?
+    QSP_TINYINT compOpCodes[QSP_MAXITEMS], compArgsCounts[QSP_MAXITEMS]; // объ€вл€ет 2 массива чаров, размерностью 200 каждый.
     int itemsCount;
     if (!(itemsCount = qspCompileExpression(expr, compValues, compOpCodes, compArgsCounts)))
-        return qspGetEmptyVariant(QSP_TYPE_UNDEFINED);
+        //вызвает "скомпилировать объ€вление", дав тому строку и 3 вышеобъ€вленных массива. и получить в ответ итемс-каунт
+        return qspGetEmptyVariant(QSP_TYPE_UNDEFINED); //если итемс-каунт оказалс€ нулем, тоесть фолс - инвертируем в тру и из функции выдаем эмпти-вариант, с типом "неопределен"
     return qspValue(--itemsCount, compValues, compOpCodes, compArgsCounts); /* the last item represents the whole expression */
 }
 
