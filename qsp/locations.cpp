@@ -23,12 +23,12 @@
 #include "text.h"
 #include "variables.h"
 
-QSPLocation *qspLocs = 0;
-QSPLocName *qspLocsNames = 0;
-int qspLocsCount = 0;
-int qspCurLoc = -1;
-int qspRefreshCount = 0;
-int qspFullRefreshCount = 0;
+QSPLocation *qspLocs = 0; /*MARK: redesigned as vector qsp_world.Locs*/
+QSPLocName *qspLocsNames = 0; /*MARK: redesigned as vector qsp_world.LocsNames*/
+int qspLocsCount = 0; /*MARK not need anymore, there is size of vector - qsp_world.Locs.size()*/
+int qspCurLoc = -1; /*MARK: redesigned as qsp_world.CurLoc*/
+int qspRefreshCount = 0; /*MARK: redesigned as qsp_world.RefreshCount*/
+int qspFullRefreshCount = 0; /*MARK: redesigned as qsp_world.FullRefreshCount*/
 
 INLINE int qspLocsCompare(const void *, const void *);
 INLINE int qspLocStringCompare(const void *, const void *);

@@ -42,12 +42,12 @@
         QSPString Name;
     } QSPLocName; /*MARK: redesigned as qsp_locName*/
 
-    extern QSPLocation *qspLocs;
-    extern QSPLocName *qspLocsNames;
-    extern int qspLocsCount;
-    extern int qspCurLoc;
-    extern int qspRefreshCount;
-    extern int qspFullRefreshCount;
+    extern QSPLocation *qspLocs; /*MARK: redesigned as vector qsp_world.Locs*/
+    extern QSPLocName *qspLocsNames; /*MARK: redesigned as vector qsp_world.LocsNames*/
+    extern int qspLocsCount;/*MARK not need anymore, there is size of vector - qsp_world.Locs.size()*/
+    extern int qspCurLoc; /*MARK: redesigned as qsp_world.CurLoc*/
+    extern int qspRefreshCount; /*MARK: redesigned as qsp_world.RefreshCount*/
+    extern int qspFullRefreshCount; /*MARK: redesigned as qsp_world.FullRefreshCount*/
 
     /* External functions */
     void qspCreateWorld(int, int);
