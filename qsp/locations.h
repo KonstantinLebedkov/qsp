@@ -35,7 +35,7 @@
         QSPLineOfCode *OnVisitLines;
         int OnVisitLinesCount;
         QSPLocAct Actions[QSP_MAXACTIONS];
-    } QSPLocation;
+    } QSPLocation; /*MARK: redesigned as qsp_location*/
     typedef struct
     {
         int Index;

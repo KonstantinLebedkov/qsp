@@ -128,6 +128,7 @@
     <ClCompile Include="..\..\..\qsp\qsp_game.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_LineOfCode.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_LinesOfCode.cpp" />
+    <ClCompile Include="..\..\..\qsp\qsp_location.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_MathOperation.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_MathOperations.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_MathOpName.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="..\..\..\qsp\qsp_game.h" />
     <ClInclude Include="..\..\..\qsp\qsp_LineOfCode.h" />
     <ClInclude Include="..\..\..\qsp\qsp_LinesOfCode.h" />
+    <ClInclude Include="..\..\..\qsp\qsp_location.h" />
     <ClInclude Include="..\..\..\qsp\qsp_MathOperation.h" />
     <ClInclude Include="..\..\..\qsp\qsp_MathOperations.h" />
     <ClInclude Include="..\..\..\qsp\qsp_MathOpName.h" />
