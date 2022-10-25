@@ -9,7 +9,7 @@ void qsp_game::ClearIncludes(bool isFirst)
         CurIncFiles.ClearStrings();
         if (CurIncLocsCount)
         {
-            count = qspLocsCount - qspCurIncLocsCount; //локс-каунт - объ€влено в хедере локаций, нативном.
+            count = World.LocsCount() - qspCurIncLocsCount; //локс-каунт - объ€влено в хедере локаций, нативном.
             //вот тут нихера не пон€л. у локаций есть счотчик. у гейма есть счотчик.
             //убив сведени€ о файлах, гуртом, смотрим, и если видим что локаций в гейме есть, то!
             //по разнице между счетчиком локаций в гейме и в фасаде локаций создаем мир.... ну как-то дико.

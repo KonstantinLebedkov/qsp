@@ -3,15 +3,22 @@
 #include "qsp_locations.h"
 #include "qsp_locNames.h"
 
+#define World qsp_world::wordHandler()
+
 class qsp_world
 {
+    qsp_world() {};
+    qsp_world(const qsp_world& root) = delete;
+    qsp_world& operator=(const qsp_world& root) = delete;
 public:
+    static qsp_world& WorldHandler();
     qsp_locations Locs;
     qsp_locNames LocsNames;
     int CurLoc = -1;
     int RefreshCount = 0;
     int FullRefreshCount = 0;
     /* External functions */
+    int LocsCount();
     void CreateWorld(int start, int locsCount);
     void PrepareLocs();
     int LocIndex(String name);

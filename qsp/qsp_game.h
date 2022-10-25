@@ -1,6 +1,7 @@
 #pragma once
 
-#include"qsp_strings.h"
+#include"qsp_world.h"
+#include "qsp_strings.h"
 
 class qsp_game
 {

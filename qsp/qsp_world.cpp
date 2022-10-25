@@ -1,5 +1,16 @@
 #include "qsp_world.h"
 
+qsp_world& qsp_world::WorldHandler()
+{
+    static qsp_world theHandler;
+    return theHandler;
+}
+
+int qsp_world::LocsCount()
+{
+    return Locs.size();
+}
+
 void qsp_world::CreateWorld(int start, int locsCount)
 {
     int i, j;
