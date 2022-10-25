@@ -1,13 +1,13 @@
 #pragma once
 
-#include "qsp_string.h"
+#include "qsp_locActs.h"
 
 class qsp_location
 {
     String Name;
     String Desc;
-    QSPLineOfCode* OnVisitLines;
+    qsp_LinesOfCode OnVisitLines;
     int OnVisitLinesCount;
-    QSPLocAct Actions[QSP_MAXACTIONS];
+    qsp_locActs Actions;
 };
 

@@ -27,14 +27,14 @@
         QSPString Desc;
         QSPLineOfCode *OnPressLines;
         int OnPressLinesCount;
-    } QSPLocAct;
+    } QSPLocAct; /*MARK: redesigned as qsp_locAct*/
     typedef struct
     {
         QSPString Name;
         QSPString Desc;
         QSPLineOfCode *OnVisitLines;
         int OnVisitLinesCount;
-        QSPLocAct Actions[QSP_MAXACTIONS];
+        QSPLocAct Actions[QSP_MAXACTIONS]; /*MARK: redesigned as vector<qsp_locAct> - qsp_locActs Actions*/
     } QSPLocation; /*MARK: redesigned as qsp_location*/
     typedef struct
     {

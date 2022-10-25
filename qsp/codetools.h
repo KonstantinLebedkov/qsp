@@ -45,7 +45,7 @@
         QSPString Label;
         QSPCachedStat *Stats;
         int StatsCount;
-    } QSPLineOfCode;
+    } QSPLineOfCode; /*MARK: redwsigned as qsp_LineOfCode, and because almost all usages is in array, declared vector class qsp_LinesOfCode*/
 
     /* External functions */
     QSPString qspGetLineLabel(QSPString str);
