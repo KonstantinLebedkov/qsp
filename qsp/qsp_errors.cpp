@@ -17,7 +17,7 @@ void qsp_errors::Init()
     int RealActIndex = -1;
 }
 
-void qsp_errors::SetError(int num)
+void qsp_errors::setError(int num)
 {
     if (!ErrorNum)
     {

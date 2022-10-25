@@ -279,8 +279,8 @@ QSPString qspNumToStr(QSP_CHAR *buf, int val)
     return qspStringFromPair(buf, last);
 }
 
-QSP_CHAR *qspDelimPos(QSPString txt, QSP_CHAR ch)
-{
+QSP_CHAR *qspDelimPos(QSPString txt, QSP_CHAR ch) //replace as txt.DelimPos(ch). и выдает она не пойнтер на чар в строке, а итератор на такой чар в строке.
+{ 
     QSP_CHAR quot, *pos;
     int c1 = 0, c2 = 0, c3 = 0;
     pos = txt.Str;
@@ -289,9 +289,12 @@ QSP_CHAR *qspDelimPos(QSPString txt, QSP_CHAR ch)
         if (qspIsInClass(*pos, QSP_CHAR_QUOT))
         {
             quot = *pos;
-            while (++pos < txt.End)
-                if (*pos == quot && (++pos >= txt.End || *pos != quot)) break;
-            if (pos >= txt.End) return 0;
+            while (++pos < txt.End) // и вот тут не понял: в квот скопировали символ, кавычку или скобку, что там в таблице символов попадает. окей. и листаем строку далее. если она не кончилась
+                if (*pos == quot && (++pos >= txt.End || *pos != quot)) break; // и вот нашли еще одну такую кавычку или скобку. такую же(!!!), в случае скобок - открывающую. а закрывающие - побоку?
+            //а, нет, уловил.
+            //это так работает: увидели именно кавычку - мотаем до следующей ТАКОЙ же кавычки.
+            if (pos >= txt.End) return 0; // в случае внезапного конца строки - возвращаем нуль (для меня, итератор конца строки). так как если искомый делимитер и был - то он в "подкавычечном" пространстве. 
+            // так вот, пролистываем строку, и закрывать пролистывание будет либо одинарная, либо тройная, в общем нечетная цепочка кавычек того же типа что и открывающая цитату кавычка.
         }
         if (*pos == QSP_LRBRACK[0])
             ++c1;

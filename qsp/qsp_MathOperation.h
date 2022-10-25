@@ -8,10 +8,11 @@ public:
     char Code;
     char Priority;
     char ResType;
-    char MinArgsCount;
-    char MaxArgsCount;
+    char minArgsCount;
+    char maxArgsCount;
     std::vector <char> ArgsTypes;
     qsp_Function Func;
-    qsp_MathOperation(char code, char priority, char resType, char minArgsCount, char maxArgsCount, qsp_Function func, std::vector<char>args) : Code(code), Priority(priority), ResType(resType), MinArgsCount(minArgsCount), MaxArgsCount(maxArgsCount), ArgsTypes(args) { Func = func; };
+    qsp_MathOperation(char code, char priority, char resType, char minACount, char maxACount, qsp_Function func, std::vector<char>args) : Code(code), Priority(priority), ResType(resType), minArgsCount(minACount), maxArgsCount(maxACount), ArgsTypes(args) { Func = func; };
+    ~qsp_MathOperation() {};
 };
 

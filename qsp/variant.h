@@ -33,12 +33,12 @@
         QSP_TYPE_VARREF = 4,
         QSP_TYPE_DEFINED_TYPES = 5, /* represents a number of defined values */
         QSP_TYPE_UNDEFINED = 64, /* not used for values, it has to be a string-based type */
-    };
+    }; /*MARK: copied to qsp_variant*/
 
-    #define QSP_ISDEF(a) ((a) != QSP_TYPE_UNDEFINED)
-    #define QSP_ISNUM(a) ((a) == QSP_TYPE_NUMBER)
-    #define QSP_ISSTR(a) ((a) > QSP_TYPE_NUMBER)
-    #define QSP_BASETYPE(a) ((a) > QSP_TYPE_NUMBER) /* QSP_TYPE_STRING | QSP_TYPE_NUMBER */
+    #define QSP_ISDEF(a) ((a) != QSP_TYPE_UNDEFINED) /*MARK: member of qsp_variant*/
+    #define QSP_ISNUM(a) ((a) == QSP_TYPE_NUMBER) /*MARK: member of qsp_variant*/
+    #define QSP_ISSTR(a) ((a) > QSP_TYPE_NUMBER) /*MARK: member of qsp_variant*/
+    #define QSP_BASETYPE(a) ((a) > QSP_TYPE_NUMBER) /* QSP_TYPE_STRING | QSP_TYPE_NUMBER */ /*MARK: member of qsp_variant*/
 
     typedef struct
     {
@@ -48,20 +48,20 @@
             int Num;
         } Val;
         QSP_TINYINT Type;
-    } QSPVariant;
+    } QSPVariant; /*MARK: redesigned as qsp_variant*/
 
     /* External functions */
-    QSP_BOOL qspConvertVariantTo(QSPVariant *val, QSP_TINYINT type);
+    QSP_BOOL qspConvertVariantTo(QSPVariant *val, QSP_TINYINT type); /*MARK: redesigned as member method "ConvertTo" of qsp_variant*/
     int qspAutoConvertCompare(QSPVariant *v1, QSPVariant *v2);
     void qspUpdateVariantValue(QSPVariant *dest, QSPVariant *src);
 
-    INLINE void qspFreeVariants(QSPVariant *args, int count)
+    INLINE void qspFreeVariants(QSPVariant *args, int count) /*MARK: just use destructor for pointed exemplar, and do nothing for localy declared vars*/
     {
         while (--count >= 0)
             if (QSP_ISSTR(args[count].Type)) qspFreeString(QSP_STR(args[count]));
     }
 
-    INLINE void qspInitVariant(QSPVariant *value, QSP_TINYINT type)
+    INLINE void qspInitVariant(QSPVariant *value, QSP_TINYINT type) /*MARK: isnt needed, because thereis defaults in constructors of qsp_variant*/
     {
         if (QSP_ISSTR(value->Type = type))
             QSP_PSTR(value) = qspNullString;
@@ -69,14 +69,14 @@
             QSP_PNUM(value) = 0;
     }
 
-    INLINE QSPVariant qspGetEmptyVariant(QSP_TINYINT type)
+    INLINE QSPVariant qspGetEmptyVariant(QSP_TINYINT type) /*MARK: redeclared default constructor of qsp_variant*/
     {
         QSPVariant ret;
         qspInitVariant(&ret, type);
         return ret;
     }
 
-    INLINE void qspCopyToNewVariant(QSPVariant *dest, QSPVariant *src)
+    INLINE void qspCopyToNewVariant(QSPVariant *dest, QSPVariant *src) /*MARK: must be copying constructor of  qsp_variant*/
     {
         if (QSP_ISSTR(dest->Type = src->Type))
             QSP_PSTR(dest) = qspGetNewText(QSP_PSTR(src));
@@ -84,7 +84,7 @@
             QSP_PNUM(dest) = QSP_PNUM(src);
     }
 
-    INLINE QSP_BOOL qspIsCanConvertToNum(QSPVariant *val)
+    INLINE QSP_BOOL qspIsCanConvertToNum(QSPVariant *val) /*MARK: member of qsp_variant*/
     {
         QSP_BOOL isValid;
         if (QSP_ISSTR(val->Type))

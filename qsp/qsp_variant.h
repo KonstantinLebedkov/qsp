@@ -1,4 +1,5 @@
 #pragma once
+
 #include "qsp_string.h"
 
 enum
@@ -17,16 +18,29 @@ class qsp_variant
 public:
     union
     {
-        qsp_string * Str;
+        String * Str;
         int * Num;
     } Val;
     char Type;
-    qsp_variant(char Type = 0) :Type(Type) { if (Type == 0) Val.Num = new int(0); else if (Type == 1)Val.Str = new qsp_string(); };
-    qsp_variant(char Type, int val) : Type(Type) { if (Type == 0) Val.Num = new int(val); else if (Type == 1) Val.Str = new qsp_string(std::to_wstring(val));}
-    qsp_variant(char Type, qsp_string val) : Type(Type) { if (Type == 0) Val.Num = new int(std::stoi(val.data())); else if (Type == 1) Val.Str = new qsp_string(val); }
-    bool IsAnyString() { if (Type == 1) return Val.Str->IsAnyString(); else return false; };
-    ~qsp_variant() { if (Type==0) delete Val.Num; else if (Type==1) Val.Str->~qsp_string(); };
-    void ConvertTo(char type);
+    qsp_variant(char Type = 0) :Type(Type) { if (Type) Val.Str = new qsp_string(); else Val.Num = new int(0); };
+    qsp_variant(char Type, int val) : Type(Type) { if (Type) Val.Str = new qsp_string(std::to_wstring(val)); else Val.Num = new int(val);}
+    qsp_variant(char Type, qsp_string val) : Type(Type) { if (Type) Val.Str = new qsp_string(val); else Val.Num = new int(std::stoi(val.data())); }
+    qsp_variant(const qsp_variant &src) : Type(src.Type) {if (Type) Val.Str = new String(*src.Val.Str); else Val.Num = new int(*src.Val.Num); };
+    bool IsAnyString() { if (Type>0) return Val.Str->IsAnyString(); else return false; };
+    ~qsp_variant() { if (Type) Val.Str->~qsp_string(); else  delete Val.Num;};
+
+    void ConvertTo(char type); //based on qspConvertVariantTo(...). original is bool, but always true. 
     void FormatVariant(); //remove starting and ending spaces and convert upcase
+    bool CanConvertToNum(); //based on "qspIsCanConvertToNum"
+    //TODO: CanConvert calls non-redesigned qspStrToNum(QSPString, bool) - redesign it
+    bool IsNum() { return (Type == QSP_TYPE_NUMBER); };
+    bool IsStr() { return (Type > QSP_TYPE_NUMBER); };
+    bool IsDef() { return (Type != QSP_TYPE_UNDEFINED); };
+    bool BaseType() { return (Type > QSP_TYPE_NUMBER); };
+    //TODO:
+    /*
+    int qspAutoConvertCompare(QSPVariant *v1, QSPVariant *v2);
+    void qspUpdateVariantValue(QSPVariant *dest, QSPVariant *src);
+    */
 };
 

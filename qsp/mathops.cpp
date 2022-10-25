@@ -314,7 +314,7 @@ INLINE QSP_TINYINT qspFunctionOpCode(QSPString funName)
     return qspOpUnknown;
 }
 
-INLINE int qspGetNumber(QSPString *expr)
+INLINE int qspGetNumber(QSPString *expr) //repaced with member method of String. use as expr.GetNumber();
 {
     int num = 0;
     QSP_CHAR *pos = expr->Str;
@@ -376,6 +376,24 @@ INLINE QSPString qspGetString(QSPString *expr)
             buf = (QSP_CHAR *)realloc(buf, bufSize * sizeof(QSP_CHAR));
         }
         buf[strLen++] = *pos;
+        // и вот тут вопросы сразу.
+        // во-первых: в буфер кидается каждый ВТОРОЙ символ. потому что: скипнули кавыку на входе. проверили первый на конец строки, проверили первый же на выходную кавычку И скипнули первый. второй записали, и скипнули проверяя на кавычку входную. проверив на кавычку выходную, скипнули третий. четвертый записали.
+        // а нет, это не так работает!
+        // первая проверка сдвигает. вторая: если не кавычка, то скипается.
+        // таким образом, получается:
+        // первым делом скипнули. и если внезапно конец - то выдать пустую строку и поставить ошибку.
+        // далее, смотрим вариант, из буквы + закрывающей кавычки.
+            // второй символ буква. второй чек не прошел -> букву в буфер и цикл второй.
+            // первый чек сдвинул. второй чек обнаружил закрывающую кавычку. сдвинул в конец, увидел конец, брейк цикла - ок.
+        // смотрим вариант пустой строки в кавычках
+            // второй символ кавычка, и подобно предыдущему, брейк цикла с пустым буфером.
+        // вариант (дабл кавычка + хвост) пройдет по вышеописанному варианту
+        // вариант (буква + кавычка + закрывающая кавычка + хвост)
+            //второй символ буква. второй чек не прошел, букву в буфер, перевод цикла.
+            //первый чек сдвинул каретку
+            //второй чек прошел, сдвинул каретку, обнаружил сдвоенность кавычки, не брейкнул.
+            // вторая кавычка из дабла ушла в буфер
+            // первый цикл сдвинул, ... не обнаружено закрывающей кавычки, но найден конец -> поставить ошибку, очистить результ и выдать его из функции.
     }
     expr->Str = pos;
     return qspStringFromLen(buf, strLen);
@@ -395,7 +413,10 @@ INLINE QSPString qspGetQString(QSPString *expr)
 }
 
 INLINE int qspFreeValue(int valueIndex, QSPVariant *compValues, QSP_TINYINT *compOpCodes, QSP_TINYINT *compArgsCounts)
-{
+{//процедурно, это в сущности, рекурсивный метод очистки массива с указателями на вариант (который может оказаться и строкой, тоесть пойнтерами). дабы избежать утечки памяти.
+    // при том, первый аргумент суть длина массива. рекурсивно декрементится в каждой итерации.
+    // соответственно, если аргс-каунт больше нуля, значит следующие несколько вариантов строковые. и потому для них в цикле зовется сама себя процедурка. а если аргументов нуль, то это текущий номер именно такого вот варианта, который строковый.
+    // как по мне, если кусп-вариантс имеет встроенный деструктор, то сия штука не должна меня колыхать. и да, в таком разе комп-оп-коды и комп-аргс-каунтсы не имеют особого смысла. а потому вопрос - надо ли вообще их иметь, ведь в сучности это сайзы векторов.
     QSP_TINYINT argsCount;
     if (valueIndex < 0) return -1;
     argsCount = compArgsCounts[valueIndex];
@@ -762,7 +783,7 @@ INLINE QSPVariant qspValue(int valueIndex, QSPVariant *compValues, QSP_TINYINT *
 }
 
 INLINE QSP_BOOL qspCompileExprPushOpCode(QSP_TINYINT *opStack, QSP_TINYINT *argStack, int *opSp, QSP_TINYINT opCode)
-{
+{//use as: qsp_expression.PushOpCode(*opSp, opCode). of couse, there must be example "Expression" of qsp_expression
     if (*opSp == QSP_STACKSIZE - 1)
     {
         qspSetError(QSP_ERR_STACKOVERFLOW);
@@ -775,7 +796,10 @@ INLINE QSP_BOOL qspCompileExprPushOpCode(QSP_TINYINT *opStack, QSP_TINYINT *argS
 }
 
 /* N.B. We can safely add operations with the highest priority directly to the output w/o intermediate stack */
-INLINE QSP_BOOL qspAppendToCompiled(QSP_TINYINT opCode, int *itemsCount, QSPVariant *compValues, QSP_TINYINT *compOpCodes, QSP_TINYINT *compArgsCounts, QSP_TINYINT argsCount, QSPVariant v)
+INLINE QSP_BOOL qspAppendToCompiled(QSP_TINYINT opCode, int *itemsCount, QSPVariant *compValues, QSP_TINYINT *compOpCodes, QSP_TINYINT *compArgsCounts, QSP_TINYINT argsCount, QSPVariant v) // replaced as member method of class CompiledExpression, 
+//call CompiledExpression.Append(char opCode, char argsCount, qsp_variant v)
+//because it is only in CompileExpression method of String, 
+//call CompExpr.Append(Expression.opStack[opSp], Expression.argStack[opSp], v)
 {
     if (*itemsCount == QSP_MAXITEMS)
     {

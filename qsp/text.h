@@ -84,7 +84,7 @@
     }
 
     INLINE QSPString qspStringFromPair(QSP_CHAR *start, QSP_CHAR *end)
-    {// равноценно применению substr с указанием начала и длины извлекаемого.
+    {// равноценно применению substr с указанием начала и длины извлекаемого, только здесь начало и конец. причем конец как-бы в строку не входит, но тут может не являться пробелом, пустым, символом конца строки и тд
         QSPString string;
         string.Str = start;
         string.End = end;
@@ -142,7 +142,8 @@
         return QSP_FALSE;
     }
 
-    INLINE QSP_BOOL qspIsInClass(QSP_CHAR ch, int charClass)
+    INLINE QSP_BOOL qspIsInClass(QSP_CHAR ch, int charClass) // bool = (*endPos<128 && ((qspAsciiClasses[*endPos] & charClass) != 0)) 
+        //replaced as method of String, check the beginning symbol of string
     {
         if (ch >= 128)
             return QSP_FALSE;
@@ -162,7 +163,7 @@
         return QSP_FALSE;
     }
 
-    INLINE QSP_BOOL qspIsDigit(QSP_CHAR ch)
+    INLINE QSP_BOOL qspIsDigit(QSP_CHAR ch) //realised as method of qsp_string string.IsDigit(); taking starting symbol of string for detection
     {
         return (ch >= QSP_FMT('0') && ch <= QSP_FMT('9'));
     }

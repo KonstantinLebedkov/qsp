@@ -5,11 +5,13 @@
 
 class qsp_MathOpNames : public std::vector <qsp_MathOpName*>
 {
-	//TODO: make it singletone? bo, because it will be part of singletone fasad
-	//but cleaner, destructor are required
+	//TODO: sorter
+
 public:
 	void AddMathOp(char code, qsp_string name) { this->push_back(new qsp_MathOpName(code, name)); };
 	char OperatorCode(qsp_string* expr);
-
+	qsp_MathOpNames::iterator GetCodeByName(qsp_string name);//TODO: realise it with search
+	void Clean();
+	~qsp_MathOpNames() { this->Clean(); };
 };
 

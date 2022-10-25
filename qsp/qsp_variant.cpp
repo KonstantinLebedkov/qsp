@@ -24,14 +24,14 @@ void qsp_variant::ConvertTo(char type)
         }
         else
         {
-            if (Type == QSP_TYPE_NUMBER)
+            if (IsNum())
             {
                 int v = *(Val.Num);
                 delete Val.Num;
                 Val.Str = new qsp_string(std::to_wstring(v));
             }
         }
-        val->Type = type;
+        Type = type;
         FormatVariant();
     }
 }
@@ -50,4 +50,15 @@ void qsp_variant::FormatVariant()
             break;
         }
     }
+}
+
+bool qsp_variant::CanConvertToNum()
+{
+    bool isValid;
+    if (IsStr())
+    {
+        qspStrToNum(Val.Str, &isValid);
+        if (!isValid) return false;
+    }
+    return true;
 }

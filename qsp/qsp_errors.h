@@ -1,7 +1,8 @@
 #pragma once
 #include "qsp_string.h"
 
-#define SetError(x) qsp_errors::ErrorsHandler().SetError(x)
+#define SetError(x) qsp_errors::ErrorsHandler().setError(x)
+#define ErrorNum qsp_errors::ErrorsHandler().errorNum
 enum
 {
     QSP_ERR_DIVBYZERO = 100,
@@ -36,7 +37,7 @@ class qsp_errors
     //TODO: move fields to private section
     //TODO: variables with curLos, line and ActIndex must be part of something other. and if they will be removed from here, init can be eliminated, and replaced with just REsetError.
 public:
-    int ErrorNum;
+    int errorNum;
     int ErrorLoc;
     int ErrorLine;
     int ErrorActIndex;
@@ -45,7 +46,7 @@ public:
     int RealActIndex;
     static qsp_errors& ErrorsHandler();
     void Init();
-    void SetError(int num);
+    void setError(int num);
     void ResetError();
     qsp_string qspGetErrorDesc(int errorNum);
 private:

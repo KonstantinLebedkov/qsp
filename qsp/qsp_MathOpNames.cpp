@@ -16,3 +16,17 @@ char qsp_MathOpNames::OperatorCode(qsp_string* expr)
         }
     }
     return qspOpUnknown;
+};
+
+qsp_MathOpNames::iterator qsp_MathOpNames::GetCodeByName(qsp_string name)
+{
+    // of course, we can use std::Find_if, but! it only compare and do it "for each"
+    //TODO: optimise with binary search
+    return std::find_if(this->begin(), this->end(), [&](qsp_MathOpNames::iterator n) {return name.compare((*n)->Name); });
+};
+void qsp_MathOpNames::Clean()
+{
+    for (auto it : *this) 
+        it->~qsp_MathOpName(); 
+    this->clear();
+};
