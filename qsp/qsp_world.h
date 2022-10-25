@@ -3,7 +3,7 @@
 #include "qsp_locations.h"
 #include "qsp_locNames.h"
 
-#define World qsp_world::wordHandler()
+#define World qsp_world::WorldHandler()
 
 class qsp_world
 {
@@ -18,7 +18,7 @@ public:
     int RefreshCount = 0;
     int FullRefreshCount = 0;
     /* External functions */
-    int LocsCount();
+    int LocsCount(); //return amount of Locs
     void CreateWorld(int start, int locsCount);
     void PrepareLocs();
     int LocIndex(String name);
