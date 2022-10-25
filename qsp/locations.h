@@ -40,7 +40,7 @@
     {
         int Index;
         QSPString Name;
-    } QSPLocName;
+    } QSPLocName; /*MARK: redesigned as qsp_locName*/
 
     extern QSPLocation *qspLocs;
     extern QSPLocName *qspLocsNames;
