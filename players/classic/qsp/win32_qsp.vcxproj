@@ -125,6 +125,7 @@
     <ClCompile Include="..\..\..\qsp\qsp_errors.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_expression.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_Function.cpp" />
+    <ClCompile Include="..\..\..\qsp\qsp_game.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_LineOfCode.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_LinesOfCode.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_MathOperation.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="..\..\..\qsp\qsp_statements.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_StatName.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_string.cpp" />
+    <ClCompile Include="..\..\..\qsp\qsp_strings.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_variant.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_variants.cpp" />
     <ClCompile Include="..\..\..\qsp\regexp.cpp" />
@@ -172,6 +174,7 @@
     <ClInclude Include="..\..\..\qsp\qsp_errors.h" />
     <ClInclude Include="..\..\..\qsp\qsp_expression.h" />
     <ClInclude Include="..\..\..\qsp\qsp_Function.h" />
+    <ClInclude Include="..\..\..\qsp\qsp_game.h" />
     <ClInclude Include="..\..\..\qsp\qsp_LineOfCode.h" />
     <ClInclude Include="..\..\..\qsp\qsp_LinesOfCode.h" />
     <ClInclude Include="..\..\..\qsp\qsp_MathOperation.h" />
@@ -183,6 +186,7 @@
     <ClInclude Include="..\..\..\qsp\qsp_statements.h" />
     <ClInclude Include="..\..\..\qsp\qsp_StatName.h" />
     <ClInclude Include="..\..\..\qsp\qsp_string.h" />
+    <ClInclude Include="..\..\..\qsp\qsp_strings.h" />
     <ClInclude Include="..\..\..\qsp\qsp_variant.h" />
     <ClInclude Include="..\..\..\qsp\qsp_variants.h" />
     <ClInclude Include="..\..\..\qsp\regexp.h" />

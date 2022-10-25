@@ -32,9 +32,9 @@
 
 int qspQstCRC = 0;
 
-QSPString qspCurIncFiles[QSP_MAXINCFILES];
-int qspCurIncFilesCount = 0;
-int qspCurIncLocsCount = 0;
+QSPString qspCurIncFiles[QSP_MAXINCFILES]; /*MARK: redesign as vector<qsp_string> - Strings CurIncFiles*/
+int qspCurIncFilesCount = 0; // can use size of vector - qsp_game.CurIncFiles.size();
+int qspCurIncLocsCount = 0; // redesigned as member property of qsp_game - qsp_game.CurIncLocsCount.
 
 int qspCRCTable[256] =
 {
