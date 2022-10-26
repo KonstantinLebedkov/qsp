@@ -5,9 +5,11 @@
 
 class qsp_locAct
 {
+public:
     String Image;
     String Desc;
     qsp_LinesOfCode OnPressLines;
     int OnPressLinesCount;
+    ~qsp_locAct();
 };
 

@@ -50,7 +50,7 @@
     extern int qspFullRefreshCount; /*MARK: redesigned as qsp_world.FullRefreshCount*/
 
     /* External functions */
-    void qspCreateWorld(int, int);
+    void qspCreateWorld(int, int); /*MARK: redesigned as World.CreateWorld(int,int)*/
     void qspPrepareLocs();
     int qspLocIndex(QSPString name);
     void qspExecLocByNameWithArgs(QSPString name, QSPVariant *args, QSP_TINYINT count, QSPVariant *res);

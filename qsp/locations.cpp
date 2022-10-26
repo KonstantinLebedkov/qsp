@@ -44,7 +44,7 @@ INLINE int qspLocStringCompare(const void *name, const void *compareTo)
     return qspStrsComp(*(QSPString *)name, ((QSPLocName *)compareTo)->Name);
 }
 
-void qspCreateWorld(int start, int locsCount)
+void qspCreateWorld(int start, int locsCount) //redesigned as World.CreateWorld(start, locsCount)
 {
     int i, j;
     for (i = start; i < qspLocsCount; ++i)

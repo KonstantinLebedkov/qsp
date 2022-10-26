@@ -19,6 +19,8 @@ qsp_LineOfCode& qsp_LineOfCode::operator=(const qsp_LineOfCode& src)
 
 qsp_LineOfCode::~qsp_LineOfCode()
 {
+    Str.~qsp_string();
+    Label.~qsp_string();
     for (auto it : Stats)
         it->~qsp_CachedStat();
 };

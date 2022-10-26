@@ -4,8 +4,10 @@
 
 class qsp_locName
 {
+public:
 	//TODO: возможно, здесь должен быть не инт, а пойнтер на локу или итератор на нее же в векторе.
 	int Index;
 	String Name;
+	~qsp_locName() { Name.~qsp_string(); };
 };
 

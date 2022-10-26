@@ -122,7 +122,7 @@
         if (s.Str) free(s.Str);
     }
 
-    INLINE void qspUpdateText(QSPString *dest, QSPString val)
+    INLINE void qspUpdateText(QSPString *dest, QSPString val)// just use dest.assign(val)
     {
         qspFreeString(*dest);
         qspAddText(dest, val, QSP_TRUE);

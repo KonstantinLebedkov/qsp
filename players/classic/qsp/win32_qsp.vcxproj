@@ -132,6 +132,7 @@
     <ClCompile Include="..\..\..\qsp\qsp_locAct.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_location.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_locations.cpp" />
+    <ClCompile Include="..\..\..\qsp\qsp_locName.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_locNames.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_MathOperation.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_MathOperations.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="..\..\..\qsp\qsp_locAct.h" />
     <ClInclude Include="..\..\..\qsp\qsp_location.h" />
     <ClInclude Include="..\..\..\qsp\qsp_locations.h" />
+    <ClInclude Include="..\..\..\qsp\qsp_locName.h" />
     <ClInclude Include="..\..\..\qsp\qsp_locNames.h" />
     <ClInclude Include="..\..\..\qsp\qsp_MathOperation.h" />
     <ClInclude Include="..\..\..\qsp\qsp_MathOperations.h" />
