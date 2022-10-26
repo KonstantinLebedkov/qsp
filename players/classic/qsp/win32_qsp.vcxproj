@@ -144,6 +144,7 @@
     <ClCompile Include="..\..\..\qsp\qsp_StatName.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_string.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_strings.cpp" />
+    <ClCompile Include="..\..\..\qsp\qsp_var.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_variant.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_variants.cpp" />
     <ClCompile Include="..\..\..\qsp\qsp_world.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="..\..\..\qsp\qsp_StatName.h" />
     <ClInclude Include="..\..\..\qsp\qsp_string.h" />
     <ClInclude Include="..\..\..\qsp\qsp_strings.h" />
+    <ClInclude Include="..\..\..\qsp\qsp_var.h" />
     <ClInclude Include="..\..\..\qsp\qsp_variant.h" />
     <ClInclude Include="..\..\..\qsp\qsp_variants.h" />
     <ClInclude Include="..\..\..\qsp\qsp_world.h" />

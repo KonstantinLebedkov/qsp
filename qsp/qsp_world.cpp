@@ -27,3 +27,30 @@ void qsp_world::PrepareLocs()
     //после чего указатели сортируются по имени.
     LocsNames.Sort();
 }
+
+void qsp_world::RefreshCurLoc(bool isChangeDesc, qsp_variants args, char count)
+{
+    QSPVar* varArgs;
+    int oldRefreshCount;
+    if (qspCurLoc < 0) return;
+    qspRestoreGlobalVars(); /* clean all local variables */ //procedure from variables.h
+    if (ErrorNum) return;
+    /* We assign global ARGS here */
+    if (!(varArgs = qspVarReference(QSP_STATIC_STR(QSP_VARARGS), true))) return;
+    qspEmptyVar(varArgs);
+    qspSetArgs(varArgs, args, count);
+    qspClearActions(false);
+    ++qspRefreshCount;
+    if (isChangeDesc) ++qspFullRefreshCount;
+    qspAllocateSavedVarsGroup();
+    oldRefreshCount = qspRefreshCount;
+    qspExecLocByIndex(qspCurLoc, isChangeDesc);
+    if (qspRefreshCount != oldRefreshCount || ErrorNum)
+    {
+        qspReleaseSavedVarsGroup(true);
+        return;
+    }
+    qspReleaseSavedVarsGroup(false);
+    if (ErrorNum) return;
+    qspExecLocByVarNameWithArgs(QSP_STATIC_STR(QSP_FMT("ONNEWLOC")), args, count);
+}

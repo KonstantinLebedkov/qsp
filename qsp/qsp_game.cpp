@@ -26,27 +26,27 @@ void qsp_game::ClearIncludes(bool isFirst)
 
 void qsp_game::NewGame(bool isReset)
 {
-    if (!qspLocsCount)
+    if (!World.LocsCount())
     {
-        qspSetError(QSP_ERR_GAMENOTLOADED);
+        SetError(QSP_ERR_GAMENOTLOADED);
         return;
     }
-    qspCurLoc = 0;
+    World.CurLoc = 0;
     if (isReset)
     {
-        qspSetSeed((unsigned int)QSP_TIME(0));
-        qspTimerInterval = QSP_DEFTIMERINTERVAL;
-        qspCurIsShowObjs = qspCurIsShowActs = qspCurIsShowVars = qspCurIsShowInput = QSP_TRUE;
-        qspMemClear(QSP_FALSE);
-        qspResetTime(0);
-        qspCallShowWindow(QSP_WIN_ACTS, QSP_TRUE);
-        qspCallShowWindow(QSP_WIN_OBJS, QSP_TRUE);
-        qspCallShowWindow(QSP_WIN_VARS, QSP_TRUE);
-        qspCallShowWindow(QSP_WIN_INPUT, QSP_TRUE);
-        qspCallSetInputStrText(qspNullString);
-        qspCallShowPicture(qspNullString);
-        qspCallCloseFile(qspNullString);
-        qspCallSetTimer(QSP_DEFTIMERINTERVAL);
+        qspSetSeed((unsigned int)QSP_TIME(0)); //procedure from common.h
+        qspTimerInterval = QSP_DEFTIMERINTERVAL; //global var from common.h
+        qspCurIsShowObjs = qspCurIsShowActs = qspCurIsShowVars = qspCurIsShowInput = QSP_TRUE; //globals
+        qspMemClear(QSP_FALSE); //procedure from common.h
+        qspResetTime(0); //procedure from time.h
+        qspCallShowWindow(QSP_WIN_ACTS, QSP_TRUE); //procedure from callbacks.h
+        qspCallShowWindow(QSP_WIN_OBJS, QSP_TRUE);//procedure from callbacks.h
+        qspCallShowWindow(QSP_WIN_VARS, QSP_TRUE);//procedure from callbacks.h
+        qspCallShowWindow(QSP_WIN_INPUT, QSP_TRUE);//procedure from callbacks.h
+        qspCallSetInputStrText(qspNullString);//procedure from callbacks.h
+        qspCallShowPicture(qspNullString);//procedure from callbacks.h
+        qspCallCloseFile(qspNullString);//procedure from callbacks.h
+        qspCallSetTimer(QSP_DEFTIMERINTERVAL);//procedure from callbacks.h
     }
-    qspRefreshCurLoc(QSP_TRUE, 0, 0);
+    World.RefreshCurLoc(true, 0, 0); //procedure from locations.h
 }

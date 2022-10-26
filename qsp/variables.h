@@ -42,7 +42,7 @@
         QSPVarIndex *Indices;
         int IndsCount;
         int IndsBufSize;
-    } QSPVar;
+    } QSPVar; //redesigned as qsp_var
 
     typedef struct
     {

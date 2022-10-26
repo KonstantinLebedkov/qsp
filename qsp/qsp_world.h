@@ -25,6 +25,6 @@ public:
     int LocIndex(String name);
     void ExecLocByNameWithArgs(String name, QSPVariant* args, char count, QSPVariant* res);
     void ExecLocByVarNameWithArgs(String name, QSPVariant* args, char count);
-    void RefreshCurLoc(bool isChangeDesc, QSPVariant* args, char count);
+    void RefreshCurLoc(bool isChangeDesc, qsp_variants args, char count);
 };
 

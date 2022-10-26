@@ -186,6 +186,9 @@
     <ClCompile Include="..\..\..\qsp\qsp_locName.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\qsp\qsp_var.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\qsp\actions.h">
@@ -345,6 +348,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\qsp\qsp_locName.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\qsp\qsp_var.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
