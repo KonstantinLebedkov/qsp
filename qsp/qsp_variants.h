@@ -4,6 +4,6 @@
 class qsp_variants :public std::vector<qsp_variant*>
 {
 public:
-	void ClearVariants() { for (qsp_variant* it : *this) it->~qsp_variant; this->clear(); };
+	void ClearVariants() { while (size() > 0) { rbegin()->~qsp_variant; pop_back(); } };
 };
 

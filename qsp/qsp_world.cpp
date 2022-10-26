@@ -1,4 +1,6 @@
 #include "qsp_world.h"
+#include "qsp_varsGroup.h"
+#include "qsp_errors.h"
 
 qsp_world& qsp_world::WorldHandler()
 {
@@ -30,7 +32,7 @@ void qsp_world::PrepareLocs()
 
 void qsp_world::RefreshCurLoc(bool isChangeDesc, qsp_variants args, char count)
 {
-    QSPVar* varArgs;
+    qsp_varsGroup varArgs;
     int oldRefreshCount;
     if (qspCurLoc < 0) return;
     qspRestoreGlobalVars(); /* clean all local variables */ //procedure from variables.h

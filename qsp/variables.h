@@ -32,7 +32,7 @@
     {
         int Index;
         QSPString Str;
-    } QSPVarIndex;
+    } QSPVarIndex; // redesigned as qsp_varIndex
 
     typedef struct
     {
