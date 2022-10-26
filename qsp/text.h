@@ -151,7 +151,7 @@
         return (qspAsciiClasses[ch] & charClass) != 0;
     }
 
-    INLINE QSP_BOOL qspIsAnyInClass(QSPString str, int charClass)
+    INLINE QSP_BOOL qspIsAnyInClass(QSPString str, int charClass)//redesigned as member method IsAnyInClass of class String
     {
         QSP_CHAR *pos = str.Str;
         while (pos < str.End)

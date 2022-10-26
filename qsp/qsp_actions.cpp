@@ -2,9 +2,11 @@
 
 qsp_actions::~qsp_actions()
 {
-	for (auto it : CurActs) 
-		it->~qsp_action();
-	CurActs.clear();
+    while (CurActs.size()) 
+    {
+        (*CurActs.rbegin())->~qsp_action();
+        CurActs.pop_back();
+    }
 }
 
 void qsp_actions::ClearActions()

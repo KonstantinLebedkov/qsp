@@ -6,12 +6,14 @@
 class qsp_var
 {
 public:
-    String Name;
-    qsp_variants Values;
-    //int ValsCount; not required, because vector "Values" have method size();
-    std::vector<qsp_varIndex> Indices;
-    int IndsCount;
+    String Name; //name of variable
+    qsp_variants Values; //vector of variant values
+    std::vector<qsp_varIndex> Indices; // vector of Indexes
+    qsp_var(String name):Name(name){};
+    ~qsp_var() { EmptyVar(); };
     int IndsBufSize;
-    void EmptyVar();
+    void EmptyVar();// clear "Values" and "Indices"
+    void InitVarData();//not required? its empty now...
+    void SetArgs(qsp_variants args); //make property "Values" the copy of given vector of qsp_variant (makes new objects and place pointers of it into vector)   
 };
 

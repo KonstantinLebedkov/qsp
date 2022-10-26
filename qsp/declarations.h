@@ -62,9 +62,9 @@
     #define QSP_QUOTS QSP_FMT("'\"")
     #define QSP_LQUOT QSP_FMT("{")
     #define QSP_RQUOT QSP_FMT("}")
-    #def
+    #define QSP_STATDELIM QSP_FMT("&")
     #define QSP_GREATEQ1 QSP_FMT(">=")
-    #define QSP_GREATEQ2 QSP_FMT("=>")ine QSP_STATDELIM QSP_FMT("&")
+    #define QSP_GREATEQ2 QSP_FMT("=>")
     #define QSP_COLONDELIM QSP_FMT(":")
     #define QSP_SPACES QSP_FMT(" \t")
     #define QSP_COMMA QSP_FMT(",")

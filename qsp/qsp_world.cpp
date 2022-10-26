@@ -1,5 +1,5 @@
 #include "qsp_world.h"
-#include "qsp_varsGroup.h"
+#include "qsp_variables.h"
 #include "qsp_errors.h"
 
 qsp_world& qsp_world::WorldHandler()
@@ -32,15 +32,15 @@ void qsp_world::PrepareLocs()
 
 void qsp_world::RefreshCurLoc(bool isChangeDesc, qsp_variants args, char count)
 {
-    qsp_varsGroup varArgs;
+    qsp_var * varArgs;
     int oldRefreshCount;
     if (qspCurLoc < 0) return;
-    qspRestoreGlobalVars(); /* clean all local variables */ //procedure from variables.h
+    VARS.RestoreGlobalVars(); /* clean all local variables */
     if (ErrorNum) return;
     /* We assign global ARGS here */
-    if (!(varArgs = qspVarReference(QSP_STATIC_STR(QSP_VARARGS), true))) return;
-    qspEmptyVar(varArgs);
-    qspSetArgs(varArgs, args, count);
+    if (!(varArgs = VARS.VarReference(String(QSP_VARARGS)))) return;
+    varArgs->EmptyVar();//qspEmptyVar(varArgs);
+    varArgs->SetArgs(args);//qspSetArgs(varArgs, args, count);
     qspClearActions(false);
     ++qspRefreshCount;
     if (isChangeDesc) ++qspFullRefreshCount;

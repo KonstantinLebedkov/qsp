@@ -195,6 +195,9 @@
     <ClCompile Include="..\..\..\qsp\qsp_varIndex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\qsp\qsp_variables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\qsp\actions.h">
@@ -363,6 +366,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\qsp\qsp_varIndex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\qsp\qsp_variables.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

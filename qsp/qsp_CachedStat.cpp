@@ -18,8 +18,9 @@ qsp_CachedStat& qsp_CachedStat::operator=(const qsp_CachedStat& src)
 
 qsp_CachedStat::~qsp_CachedStat()
 {
-    for (qsp_CachedArg* Arg : Args)
+    while (Args.size())
     {
-        Arg->~qsp_CachedArg();
+        (*Args.rbegin())->~qsp_CachedArg();
+        Args.pop_back();
     }
 }

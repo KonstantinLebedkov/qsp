@@ -42,7 +42,7 @@ INLINE int qspIndStringCompare(const void *name, const void *compareTo)
     return qspStrsComp(*(QSPString *)name, ((QSPVarIndex *)compareTo)->Str);
 }
 
-QSPVar *qspVarReference(QSPString name, QSP_BOOL isCreate)
+QSPVar *qspVarReference(QSPString name, QSP_BOOL isCreate) // redesigned as member method "VarReference of qsp_variables. use VARS.VarReference(...)
 {
     int i;
     QSPVar *var;
@@ -426,7 +426,7 @@ void qspRestoreLocalVars(QSPVar *savedVars, int varsCount, QSPVarsGroup *savedGr
     }
 }
 
-void qspRestoreVarsList(QSPVar *vars, int varsCount)
+void qspRestoreVarsList(QSPVar *vars, int varsCount) //its free memory from arrays of vars. use destructors
 {
     int i;
     QSPVar *var;
@@ -610,7 +610,7 @@ int qspGetVarsCount()
     return count;
 }
 
-void qspSetArgs(QSPVar *var, QSPVariant *args, int count)
+void qspSetArgs(QSPVar *var, QSPVariant *args, int count) //redeclared as member SetArgs of class qsp_var
 {
     while (--count >= 0)
         qspSetVarValueByReference(var, count, args + count);

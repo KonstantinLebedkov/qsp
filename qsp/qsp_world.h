@@ -23,8 +23,8 @@ public:
     void CreateWorld(int start, int locsCount); //чистит локи сверх количества "старт"
     void PrepareLocs(); //чистит вектор лок-неймз, заполняет и сортирует.
     int LocIndex(String name);
-    void ExecLocByNameWithArgs(String name, QSPVariant* args, char count, QSPVariant* res);
-    void ExecLocByVarNameWithArgs(String name, QSPVariant* args, char count);
+    void ExecLocByNameWithArgs(String name, qsp_variants args, char count, qsp_variants res);
+    void ExecLocByVarNameWithArgs(String name, qsp_variants args, char count);
     void RefreshCurLoc(bool isChangeDesc, qsp_variants args, char count);
 };
 

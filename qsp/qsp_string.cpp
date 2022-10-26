@@ -109,6 +109,12 @@ bool qsp_string::IsInClass(char charClass)
     *begin() < 128 && ((qspAsciiClasses[*begin()] & charClass) != 0)
 }
 
+bool qsp_string::IsAnyInClass(char charClass)
+{
+    for (auto it : *this) if ((it) < 128 && ((qspAsciiClasses[it] & charClass) != 0)) return true;
+    return false;
+}
+
 String qsp_string::GetString()
 {//TODO: will be it better to use method "find"? i'm shurem its possible and better than just iterate one-by-one.
  //at first, it is quote as the beginning symbol. we can search similar symbol from begin+1, if it is not only one symbol. anyway, if quote is only one, "find" will return end().
@@ -143,6 +149,11 @@ String qsp_string::GetName()
     String result = substr(0, distance(begin(), endPos));
     assign(substr(distance(begin(), endPos)));
     return result;
+}
+
+void qsp_string::SkipN(int n)
+{
+    assign(substr(n));
 }
 
 qsp_CompiledExpression qsp_string::CompileExpression()

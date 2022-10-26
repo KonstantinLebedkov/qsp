@@ -80,7 +80,7 @@
     QSP_BOOL qspStatementCopyArr(QSPVariant *args, QSP_TINYINT count, QSPString *jumpTo, QSP_TINYINT extArg);
     QSP_BOOL qspStatementKillVar(QSPVariant *args, QSP_TINYINT count, QSPString *jumpTo, QSP_TINYINT extArg);
 
-    INLINE void qspInitVarData(QSPVar *var)
+    INLINE void qspInitVarData(QSPVar *var) //redeclared as InitVarData method, but now its empty - not required initalize anythig if vectors empty
     {
         var->Values = 0;
         var->ValsCount = 0;
