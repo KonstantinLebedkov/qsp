@@ -46,9 +46,9 @@
 
     typedef struct
     {
-        QSPVar *Vars;
-        int VarsCount;
-    } QSPVarsGroup;
+        QSPVar *Vars; //not required as property, because class is vector
+        int VarsCount; //not required, vector have metod size();
+    } QSPVarsGroup; //redesigned as vector of qsp_vars - qsp_varsGroup
 
     extern QSPVar qspVars[QSP_VARSCOUNT];
     extern QSPVarsGroup *qspSavedVarGroups;
