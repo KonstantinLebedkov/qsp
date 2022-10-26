@@ -2,9 +2,10 @@
 
 void qsp_locNames::ClearTail(int start)
 {
-    for (auto i = begin()+start; i < end(); ++i)
+    for (auto i = end()-1; i >= begin() + start ; --i)
     {
         (*i).~qsp_locName();
+        pop_back();
     }
 }
 

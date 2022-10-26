@@ -28,10 +28,10 @@
     #define QSP_DEFTIMERINTERVAL 500
 
     extern int qspQstCRC;
-    extern int qspCurIncLocsCount;
+    extern int qspCurIncLocsCount; // property Game.CurIncLocsCount
 
     /* External functions */
-    void qspClearIncludes(QSP_BOOL);
+    void qspClearIncludes(QSP_BOOL); //redesigned as Game.ClearIncludes();
     void qspNewGame(QSP_BOOL);
     QSP_BOOL qspOpenGame(void *data, int dataSize, QSP_BOOL isNewGame);
     QSP_BOOL qspSaveGameStatus(void *buf, int *bufSize);

@@ -2,8 +2,9 @@
 
 void qsp_locations::ClearTail(int start)
 {
-    for (auto i = begin()+start; i < end(); ++i)
+    for (auto it = end()-1; it >= begin() + start; --it)
     { 
-        (*i).~qsp_location();
+        (*it)->~qsp_location();
+        pop_back();
     }
 }

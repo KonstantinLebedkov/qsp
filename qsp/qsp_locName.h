@@ -1,13 +1,14 @@
 #pragma once
 
 #include "qsp_string.h"
+#include "qsp_location.h"
 
 class qsp_locName
 {
 public:
-	//TODO: возможно, здесь должен быть не инт, а пойнтер на локу или итератор на нее же в векторе.
-	int Index;
+	qsp_location * Loc;
 	String Name;
+	qsp_locName(qsp_location* loc) : Loc(loc), Name(loc->Name) {Name.UpperString() };
 	~qsp_locName() { Name.~qsp_string(); };
 };
 
