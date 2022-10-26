@@ -16,5 +16,6 @@ public:
     int QstCRC;
     int CurIncLocsCount; //счетчик включенных в игру локаций. (нафига он нужен, если есть у класса World свойство Locs с методом size() ?)
     void ClearIncludes(bool isFirst); //некая чистка . импортировано, но посмотреть насколько актуально взависимости от применений.
+    void NewGame(bool isReset);
 };
 
